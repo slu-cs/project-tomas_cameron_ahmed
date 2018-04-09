@@ -1,0 +1,47 @@
+/*Main Layout*/
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-opacity: 0.5;
+
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    margin-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: double;
+    width: 20%;
+}
+
+main {
+    overflow: auto;
+}
+
+/*Main Page*/
+/*Header layout*/
+header{
+    text-align: center;
+    padding-bottom: 2em;
+    padding-top: 2em;
+}
+header ul {
+    list-style: none;
+    margin: 0;
+}
+
+
+header li {
+    width: 20%;
+    float: left;
+}
+
+header a {
+    color: #ffffff;
+}
+header {
+    overflow: auto;
+    background-color: rgba(75, 64, 62, 0.56);
+}
