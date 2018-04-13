@@ -61,5 +61,5 @@ db.items.insertMany([
 ]);
 
 // Make it fast to look up all studentId's
-//db.users.createIndex({student.id: 1});
-//db.items.createIndex({item.id: 1});
+db.users.createIndex({'student.id': 1});
+db.items.createIndex({'item.id': 1});
