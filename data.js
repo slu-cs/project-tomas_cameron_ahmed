@@ -17,19 +17,19 @@ db.createCollection('items', {validator: {$and: [
 
 db.users.insertMany([
   {
-    student_balance:1000.00
+    student_balance:1000.00,
     student: {id: '11234650', name: 'Cameron Pilarski'},
   },
   {
-    student_balance:750.00
+    student_balance:750.00,
     student: {id: '11234651', name: 'Tomas Cespedes'},
   },
   {
-    student_balance:500.00
+    student_balance:500.00,
     student: {id: '11234652', name: 'Ahmed Bahyoumy'},
   },
   {
-    student_balance:250.00
+    student_balance:250.00,
     student: {id: '11234653', name: 'Lisa Torrey'},
   },
 
@@ -61,5 +61,5 @@ db.items.insertMany([
 ]);
 
 // Make it fast to look up all studentId's
-db.users.createIndex({student.id: 1});
-db.items.createIndex({item.id: 1});
+//db.users.createIndex({student.id: 1});
+//db.items.createIndex({item.id: 1});

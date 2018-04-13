@@ -18,13 +18,13 @@
      </ul>
     </header>
 
-<<<<<<< HEAD
+
     <main id=items>
       <p class="loading">Loading opinions...</p>
     </main>
 
 
-=======
+
     <footer class="bg-dark fixed-bottom p-2">
       <a href="/auth" id="log" class="text-white float-right">Log in with Google</a>
     </footer>
@@ -42,13 +42,13 @@
         }
       });
     </script>
->>>>>>> 892401482fa1798211a78ac0444a0151d1aa5db1
+
   </body>
 
   <script>
 
     // Generate an article for an item
-       const itemArticle = function(opinion) {
+       const itemArticle = function(item) {
          return $(`
            <article class="">
              <div class="">
@@ -63,9 +63,9 @@
        };
 
        // Load items from db
-        $.ajax({method: 'GET', url: `/items?item=${item.id}`})
+        $.ajax({method: 'GET', url: `/items`})
           .fail(() => $('#items .loading').text('Could not load menu items!'))
-          .done(function(opinions) {
+          .done(function(items) {
             $('#items .loading').remove();
             $('#items').append(items.map(item => itemArticle(item)));
           });
