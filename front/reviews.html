@@ -16,5 +16,23 @@
       <li><a href="contact.html">Contact Us</a></li>
      </ul>
     </header>
+
+    <footer class="bg-dark fixed-bottom p-2">
+      <a href="/auth" id="log" class="text-white float-right">Log in with Google</a>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+    // Make Changes if user is logged in
+    let self = null;
+    $.ajax({method: 'GET', url: '/user'})
+      .done(function(user) {
+        if (user) {
+          self = user;
+          $('#log').attr('href', '/logout').text('Log out');
+        }
+      });
+    </script>
   </body>
 </html>

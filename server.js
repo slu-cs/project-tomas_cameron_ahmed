@@ -46,9 +46,6 @@ server.use(function(request, response, next) {
 // Front end routes
 server.use(express.static('front', {extensions: ['html']}));
 
-// Back end APIs
-//server.use('/opinions', require('./back/opinions'));
-//server.use('/comments', require('./back/comments'));
 
 // Login routes
 server.get('/auth', passport.authenticate('google', {scope: ['profile']}));
