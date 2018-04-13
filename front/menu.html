@@ -16,5 +16,38 @@
       <li><a href="contact.html">Contact Us</a></li>
      </ul>
     </header>
+
+    <main id=items>
+      <p class="loading">Loading opinions...</p>
+    </main>
+
+
   </body>
+
+  <script>
+
+    // Generate an article for an item
+       const itemArticle = function(opinion) {
+         return $(`
+           <article class="">
+             <div class="">
+               <a href="items?id=${item.id}">${item.name}/a>
+               <span class="">${item.price}</span>
+             </div>
+             <div>
+               <p>${item.description}</p>
+             </div>
+           </article>
+         `);
+       };
+
+       // Load items from db
+        $.ajax({method: 'GET', url: `/items?item=${item.id}`})
+          .fail(() => $('#items .loading').text('Could not load menu items!'))
+          .done(function(opinions) {
+            $('#items .loading').remove();
+            $('#items').append(items.map(item => itemArticle(item)));
+          });
+
+  </script>
 </html>
