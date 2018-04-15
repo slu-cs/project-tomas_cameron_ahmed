@@ -9,10 +9,10 @@ db.createCollection('users', {validator: {$and: [
 ]}});
 
 db.createCollection('items', {validator: {$and: [
-  {'item.id': {$type: 'string', $ne: ''}},
+  {item_id: {$type: 'objectId', $ne: ''}},
+  {price: {$type: 'float', $ne: ''}},
   {'item.name': {$type: 'string', $ne: ''}},
   {'item.description': {$type: 'string', $ne: ''}},
-  {price: {$type: 'float', $ne: ''}},
 ]}});
 
 db.users.insertMany([
@@ -37,23 +37,23 @@ db.users.insertMany([
 
 db.items.insertMany([
   {
-    item: {id: 001, name: 'Chicken Sandwhich', description: 'A tasty chicken sandwhich' },
+    item: {id: '001', name: 'Chicken Sandwhich', description: 'A tasty chicken sandwhich' },
     price: 12.50,
   },
   {
-    item: {id: 002, name: 'Buffalo Chicken Sandwhich', description: 'A better tasting chicken sandwhich' },
+    item: {id: '002', name: 'Buffalo Chicken Sandwhich', description: 'A better tasting chicken sandwhich' },
     price: 13.50,
   },
   {
-    item: {id: 003, name: 'Pub 56 Salad', description: 'Best damn salad youll ever taste' },
+    item: {id: '003', name: 'Pub 56 Salad', description: 'Best damn salad youll ever taste' },
     price: 14.50,
   },
   {
-    item: {id: 004, name: 'Tuna Salad Sandwhich', description: 'Who even likes tuna salad?' },
+    item: {id: '004', name: 'Tuna Salad Sandwhich', description: 'Who even likes tuna salad?' },
     price: 15.50,
   },
   {
-    item: {id: 005, name: 'Omelotte', description: 'Tasty omelotte' },
+    item: {id: '005', name: 'Omelotte', description: 'Tasty omelotte' },
     price: 11.00,
   },
 
@@ -61,5 +61,5 @@ db.items.insertMany([
 ]);
 
 // Make it fast to look up all studentId's
-db.users.createIndex({'student.id': 1});
-db.items.createIndex({'item.id': 1});
+//db.users.createIndex({'student.id': 1});
+db.items.createIndex({item_id: 1});

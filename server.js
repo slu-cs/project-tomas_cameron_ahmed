@@ -46,6 +46,10 @@ server.use(function(request, response, next) {
 // Front end routes
 server.use(express.static('front', {extensions: ['html']}));
 
+// Back end APIs
+//server.use('/users', require('./back/users'));
+server.use('/items', require('./back/items'));
+
 
 // Login routes
 server.get('/auth', passport.authenticate('google', {scope: ['profile']}));

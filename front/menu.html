@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Pub 56</title>
   </head>
-  <body background="images/foodmenu.jpg">
+  <body>
     <header>
      <ul>
       <li><a href="index.html">Home Page</a></li>
@@ -18,12 +18,11 @@
      </ul>
     </header>
 
+    <h1 class="text-center display-3">Food Menu</h1>
 
     <main id=items>
-      <p class="loading">Loading opinions...</p>
+      <p class="loading">Loading items...</p>
     </main>
-
-
 
     <footer class="bg-dark fixed-bottom p-2">
       <a href="/auth" id="log" class="text-white float-right">Log in with Google</a>
@@ -32,28 +31,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
 
-    // Make Changes if user is logged in
-    let self = null;
-    $.ajax({method: 'GET', url: '/user'})
-      .done(function(user) {
-        if (user) {
-          self = user;
-          $('#log').attr('href', '/logout').text('Log out');
-        }
-      });
-    </script>
-
-  </body>
-
-  <script>
-
     // Generate an article for an item
        const itemArticle = function(item) {
          return $(`
-           <article class="">
-             <div class="">
-               <a href="items?id=${item.id}">${item.name}/a>
-               <span class="">${item.price}</span>
+           <article class="card my-3">
+             <div class="card-header">
+               <a href="items?topic=${item._id}">${item.name}</a>
+               <span>${item.price}</span>
              </div>
              <div>
                <p>${item.description}</p>
@@ -62,13 +46,24 @@
          `);
        };
 
+       // Make Changes if user is logged in
+       let self = null;
+       $.ajax({method: 'GET', url: '/user'})
+         .done(function(user) {
+           if (user) {
+             self = user;
+             $('#log').attr('href', '/logout').text('Log out');
+           }
+         });
+
        // Load items from db
-        $.ajax({method: 'GET', url: `/items`})
-          .fail(() => $('#items .loading').text('Could not load menu items!'))
+        $.ajax({method: 'GET', url: '/items'})
+          .fail(() => $('#items .loading').text('Could Not Load Items!!'))
           .done(function(items) {
             $('#items .loading').remove();
             $('#items').append(items.map(item => itemArticle(item)));
           });
 
-  </script>
+    </script>
+  </body>
 </html>
