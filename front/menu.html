@@ -36,11 +36,8 @@
          const iArticle = $(`
            <article class="card my-3">
              <div class="card-header">
-               <a href="itemdescription?id=${item.id}">${item.item.name}</a>
+               <a href="itemdescription?topic=${item.id}">${item.item.name}</a>
                <span>$${item.price}</span>
-             </div>
-             <div>
-               <p>${item.item.description}</p>
              </div>
            </article>
          `);

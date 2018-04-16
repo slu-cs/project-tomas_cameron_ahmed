@@ -1,15 +1,8 @@
-Features due by 4/30:
- 1) A logged-in user can add money to their balance.
- 2) A logged-in user can add items to their shopping cart.
- 3) A logged-in user with a non-empty cart can "place an order."
- 4) Any user can filter the menu by some useful criterion (perhaps food category or keyword?).
-
-
 Features due by 4/16:
- 1) Home page that lists all menu items in some default order.
+ 1) Home page that lists all menu items in some default order. <DONE>
  2) Item page that describes a menu item in more detail than you see on the home page.
  3) Ability to log in and log out. <DONE>
- 4) Profile page for a logged-in user that shows the user's balance and lists items in the user's shopping cart.
+ 4) Profile page for a logged-in user that shows the user's balance and lists items in the user's shopping cart. <DONEish>
 
 Sample data you'll probably need to demonstrate these features:
 - A menu collection (with some menu items)
