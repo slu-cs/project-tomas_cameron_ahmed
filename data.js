@@ -37,24 +37,29 @@ db.users.insertMany([
 
 db.items.insertMany([
   {
-    item: {id: '001', name: 'Chicken Sandwhich', description: 'A tasty chicken sandwhich'},
+    item: {name: 'Chicken Sandwhich', description: 'A tasty chicken sandwhich'},
     price: 12.50,
+    id: '1',
   },
   {
-    item: {id: '002', name: 'Buffalo Chicken Sandwhich', description: 'A better tasting chicken sandwhich' },
+    item: {name: 'Buffalo Chicken Sandwhich', description: 'A better tasting chicken sandwhich' },
     price: 13.50,
+    id: '2',
   },
   {
-    item: {id: '003', name: 'Pub 56 Salad', description: 'Best damn salad youll ever taste' },
+    item: {name: 'Pub 56 Salad', description: 'Best damn salad youll ever taste' },
     price: 14.50,
+    id: '3'
   },
   {
-    item: {id: '004', name: 'Tuna Salad Sandwhich', description: 'Who even likes tuna salad?' },
+    item: {name: 'Tuna Salad Sandwhich', description: 'Who even likes tuna salad?' },
     price: 15.50,
+    id: '4'
   },
   {
-    item: {id: '005', name: 'Omelotte', description: 'Tasty omelotte' },
+    item: {name: 'Omelotte', description: 'Tasty omelotte' },
     price: 11.00,
+    id: '5', 
   },
 
 

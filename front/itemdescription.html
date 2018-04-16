@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Item Description</title>
+  </head>
+  <body>
+    <header id="specificItem" class="jumbotron">
+      <h1 class="loading">Loading item...</h1>
+    </header>
+
+    <footer class="bg-dark fixed-bottom p-2">
+      <a href="/menu" class="text-white float-left">Back to all items</a>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+    // Generate an article for the item
+    const itemArticle = function(item) {
+      const iArticle =  $(`
+        <header>
+          <h1>${item.item.name}</h1>
+          <p>${item.item.description}</p>
+        </header>
+      `);
+
+      return iArticle
+    };
+
+    // Get the opinion ID out of the URL
+    const topic = new URLSearchParams(window.location.search).get('id');
+    console.log(topic);
+
+    // Load the item from the database
+    $.ajax({method: 'GET', url: `/items/${topic}`})
+      .fail(() => $('#specificItem .loading').text('Could not load item!'))
+      .done(function(item) {
+        $('#specificItem .loading').remove();
+        $('#specificItem').append(specificItem(item));
+      });
+
+    </script>
+  </body>
+</html>

@@ -11,7 +11,7 @@ const router = express.Router();
     db.items = db.collection('items');
   });
 
-  // Get all the items
+  // Get all the menu items
   router.get('/', function(request, response, next) {
     db.items.find().toArray(function(error, items) {
       if (error) return next(error);
@@ -19,18 +19,21 @@ const router = express.Router();
     });
   });
 
-  // Get a specific item
-  router.get('/:id/:name', function(request, response, next){ // REST convention: combine this with the get('/')
-    const item = {
-      "item": {
-        "price": request.params.price,
-      }
-    };
-    db.items.find(item).toArray(function(error, items){
-      if (error) return next(error);
-      response.json(items);
-    });
-  });
+  // Get a specific menu item
+   router.get('/:id', function(request, response, next) {
+     const item = {
+       "id": request.params.id,
+     };
+
+     console.log(item)
+
+     db.items.findOne(item, function(error, item) {
+       if (error) return next(error);
+       if (!item) return next(new Error('Not found'));
+       response.json(item);
+     });
+   });
+
 
 
 module.exports = router;
