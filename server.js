@@ -47,7 +47,7 @@ server.use(function(request, response, next) {
 server.use(express.static('front', {extensions: ['html']}));
 
 // Back end APIs
-//server.use('/users', require('./back/users'));
+server.use('/students', require('./back/students'));
 server.use('/items', require('./back/items'));
 
 

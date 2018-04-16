@@ -13,9 +13,13 @@
       <li><a href="menu.html">Menu</a></li>
       <li><a href="foodorder.html">Place an Order</a></li>
       <li><a href="reviews.html">Reviews</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="userspage.html">View All Users</a></li>
      </ul>
     </header>
+
+    <main id="allStudents" class="container-fluid">
+      <p class="loading">Loading Students...</p>
+    </main>
 
     <footer class="bg-dark fixed-bottom p-2">
       <a href="/auth" id="log" class="text-white float-right">Log in with Google</a>
@@ -23,6 +27,18 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+
+    // Generate a header for the opinion
+    const userArticles = function(student) {
+      const tempUserArticle =  $(`
+        <header class="head">
+          <h1>${student.student.name}</h1>
+          <p>$${student.balance}</p>
+        </header>
+      `);
+
+      return tempUserArticle;
+    };
 
     // Make Changes if user is logged in
     let self = null;
@@ -33,6 +49,16 @@
           $('#log').attr('href', '/logout').text('Log out');
         }
       });
+
+      // Load items from db
+       $.ajax({method: 'GET', url: '/students'})
+         .fail(() => $('#allStudents .loading').text('Could Not Load Students!!'))
+         .done(function(students) {
+           $('#allStudents .loading').remove();
+           console.log(students)
+           $('#allStudents').append(students.map(student => userArticles(student)));
+         });
+
     </script>
   </body>
 </html>

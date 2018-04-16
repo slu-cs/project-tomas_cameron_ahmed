@@ -19,13 +19,11 @@ const router = express.Router();
     });
   });
 
-  // Get a specific menu item
+  // Get a specific menu item: TRYING TO GET TO WORK
    router.get('/:id', function(request, response, next) {
      const item = {
        "id": request.params.id,
      };
-
-     console.log(item)
 
      db.items.findOne(item, function(error, item) {
        if (error) return next(error);

@@ -2,9 +2,9 @@
 const db = new Mongo().getDB('pub56');
 db.dropDatabase();
 
-db.createCollection('users', {validator: {$and: [
-  {student_balance: {$type: 'float', $ne: ''}},
-  {'student.id': {$type: 'string', $ne: ''}},
+db.createCollection('students', {validator: {$and: [
+  {balance: {$type: 'float', $ne: ''}},
+  {student_id: {$type: 'string', $ne: ''}},
   {'student.name': {$type: 'string', $ne: ''}},
 ]}});
 
@@ -15,21 +15,21 @@ db.createCollection('items', {validator: {$and: [
   {'item.description': {$type: 'string', $ne: ''}},
 ]}});
 
-db.users.insertMany([
+db.students.insertMany([
   {
-    student_balance:1000.00,
+    balance:1000.00,
     student: {id: '11234650', name: 'Cameron Pilarski'},
   },
   {
-    student_balance:750.00,
+    balance:750.00,
     student: {id: '11234651', name: 'Tomas Cespedes'},
   },
   {
-    student_balance:500.00,
+    balance:500.00,
     student: {id: '11234652', name: 'Ahmed Bahyoumy'},
   },
   {
-    student_balance:250.00,
+    balance:250.00,
     student: {id: '11234653', name: 'Lisa Torrey'},
   },
 
@@ -59,12 +59,12 @@ db.items.insertMany([
   {
     item: {name: 'Omelotte', description: 'Tasty omelotte' },
     price: 11.00,
-    id: '5', 
+    id: '5',
   },
 
 
 ]);
 
 // Make it fast to look up all studentId's
-//db.users.createIndex({'student.id': 1});
+db.users.createIndex({student_id: 1});
 db.items.createIndex({item_id: 1});
