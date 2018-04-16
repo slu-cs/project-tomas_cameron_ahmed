@@ -37,7 +37,7 @@ db.users.insertMany([
 
 db.items.insertMany([
   {
-    item: {id: '001', name: 'Chicken Sandwhich', description: 'A tasty chicken sandwhich' },
+    item: {id: '001', name: 'Chicken Sandwhich', description: 'A tasty chicken sandwhich'},
     price: 12.50,
   },
   {

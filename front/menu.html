@@ -33,17 +33,20 @@
 
     // Generate an article for an item
        const itemArticle = function(item) {
-         return $(`
+         const iArticle = $(`
            <article class="card my-3">
              <div class="card-header">
-               <a href="items?topic=${item._id}">${item.name}</a>
+               <a href="items?id=${item._id}">${item.item.name}</a>
                <span>${item.price}</span>
              </div>
              <div>
-               <p>${item.description}</p>
+               <p>${item.item.description}</p>
              </div>
            </article>
          `);
+        console.log(item.name);
+
+         return iArticle;
        };
 
        // Make Changes if user is logged in
