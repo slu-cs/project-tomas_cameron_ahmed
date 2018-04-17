@@ -40,30 +40,35 @@ db.items.insertMany([
     item: {name: 'Chicken Sandwhich', description: 'A tasty chicken sandwhich'},
     price: 12.50,
     id: '1',
+    url: "https://assets.marthastewart.com/styles/video-preview-1280x720-highdpi/d35/EDFSC6021-Buffalo%20Chicken%20Sandwich%20/EDFSC6021-Buffalo%20Chicken%20Sandwich%20.jpg?itok=pFfni9QR",
   },
   {
     item: {name: 'Buffalo Chicken Sandwhich', description: 'A better tasting chicken sandwhich' },
     price: 13.50,
     id: '2',
+    url: "https://www.perdue.com/recipeimages/1024x768_thighs_buffalo_chicken_sandwich_tada.jpg",
   },
   {
     item: {name: 'Pub 56 Salad', description: 'Best damn salad youll ever taste' },
     price: 14.50,
-    id: '3'
+    id: '3',
+    url: "https://hips.hearstapps.com/del.h-cdn.co/assets/16/21/1464036871-delish-summer-salads-chicken-fajita.jpg",
   },
   {
     item: {name: 'Tuna Salad Sandwhich', description: 'Who even likes tuna salad?' },
     price: 15.50,
-    id: '4'
+    id: '4',
+    url: "https://8zxa3etwpf-flywheel.netdna-ssl.com/wp-content/uploads/30-minute-Chickpea-Sunflower-Salad-Sandwich-Soft-Crunchy-savory-and-SO-simple-vegan-glutenfree-healthy-1.jpg",
   },
   {
-    item: {name: 'Omelotte', description: 'Tasty omelotte' },
+    item: {name: 'Omelette', description: 'Tasty omelette' },
     price: 11.00,
     id: '5',
+    url: "https://www.recipetineats.com/wp-content/uploads/2017/09/Ultra-Lazy-Zucchini-Ham-Omelette-3.jpg",
   },
 
-
 ]);
+
 
 // Make it fast to look up all studentId's
 db.users.createIndex({student_id: 1});
