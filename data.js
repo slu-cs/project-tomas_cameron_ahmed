@@ -6,7 +6,7 @@ db.createCollection('students', {validator: {$and: [
   {balance: {$type: 'float', $ne: ''}},
   {student_id: {$type: 'string', $ne: ''}},
   {'student.name': {$type: 'string', $ne: ''}},
-  {_id: type: 'string', $ne: ''},
+  {_id: {type: 'string', $ne: ''}},
 ]}});
 
 db.createCollection('items', {validator: {$and: [
@@ -20,12 +20,12 @@ db.students.insertMany([
   {
     balance:1000.00,
     student: {id: '11234650', name: 'Cameron Pilarski'},
-    _id: 112913515548615287015,
+    _id: "112913515548615287015",
   },
   {
     balance:750.00,
     student: {id: '11234651', name: 'Tomas Cespedes'},
-    _id: 113900384673070663488,
+    _id: "113900384673070663488",
   },
   {
     balance:500.00,

@@ -18,7 +18,7 @@
     </header>
 
     <main id="allStudents" class="container-fluid">
-      <p class="loading">Loading Students...</p>
+      <p class="loading">Loading Student Profile...</p>
     </main>
 
     <footer class="bg-dark fixed-bottom p-2">
@@ -31,7 +31,7 @@
     // Generate a header for the opinion
     const userArticles = function(student) {
       const tempUserArticle =  $(`
-        <header class="card-body" id="${student._id}" hidden>
+        <header class="card-body" id="${student._id}">
           <h1>${student.student.name} (${student.student.id})</h1>
           <p>$${student.balance}</p>
         </header>
