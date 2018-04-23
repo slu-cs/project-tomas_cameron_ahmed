@@ -31,13 +31,13 @@
     // Generate a header for the opinion
     const userArticles = function(student) {
       const tempUserArticle =  $(`
-        <header class="card-body" hidden>
+        <header class="card-body" id="${student._id}" hidden>
           <h1>${student.student.name} (${student.student.id})</h1>
           <p>$${student.balance}</p>
         </header>
       `);
 
-      if (!self || self.id === student._id) {
+      if (!self || self.id !== student._id) {
         $('.card-body').prop('hidden', false);
       }
 
@@ -52,6 +52,7 @@
         if (user) {
           self = user;
           $('#log').attr('href', '/logout').text('Log out');
+          $(`#${self.id}`).show();
         }
       });
 
