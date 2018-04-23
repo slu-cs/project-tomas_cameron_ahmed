@@ -13,7 +13,7 @@
       <li><a href="menu.html">Menu</a></li>
       <li><a href="foodorder.html">Place an Order</a></li>
       <li><a href="reviews.html">Reviews</a></li>
-      <li><a href="userspage.html">View All Users</a></li>
+      <li><a href="userspage.html">Profile</a></li>
      </ul>
     </header>
 
@@ -31,11 +31,16 @@
     // Generate a header for the opinion
     const userArticles = function(student) {
       const tempUserArticle =  $(`
-        <header class="head">
-          <h1>${student.student.name}</h1>
+        <header class="card-body" hidden>
+          <h1>${student.student.name} (${student.student.id})</h1>
           <p>$${student.balance}</p>
         </header>
       `);
+
+      if (!self || self.id === student._id) {
+        $('.card-body').prop('hidden', false);
+      }
+
 
       return tempUserArticle;
     };

@@ -13,9 +13,9 @@ Teamwork balancing requirement:
 
 Features due by 4/16:
  1) Home page that lists all menu items in some default order. <DONE>
- 2) Item page that describes a menu item in more detail than you see on the home page.
+ 2) Item page that describes a menu item in more detail than you see on the home page. <DONE>
  3) Ability to log in and log out. <DONE>
- 4) Profile page for a logged-in user that shows the user's balance and lists items in the user's shopping cart. <DONEish>
+ 4) Profile page for a logged-in user that shows the user's balance and lists items in the user's shopping cart. <DONE>
 
 Sample data you'll probably need to demonstrate these features:
 - A menu collection (with some menu items)
