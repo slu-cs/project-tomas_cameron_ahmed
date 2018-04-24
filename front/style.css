@@ -1,9 +1,15 @@
 /*Main Layout*/
+*{
+  box-sizing: border-box;
+}
 body{
+    background-image: url("images/3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-opacity: 0.5;
-
+    height: 100vh;
+    background-position: center;
+    padding-top: 7rem;
 }
 ul {
     list-style: none;
@@ -44,4 +50,18 @@ header a {
 header {
     overflow: auto;
     background-color: rgba(75, 64, 62, 0.56);
+}
+.logo{
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+.images .logo:nth-child(2){
+  margin-top: 2rem;
+}
+.images .logo:last-of-type{
+  margin-top: 4rem;
+}
+.hidden{
+  display: none;
 }
