@@ -54,7 +54,7 @@ server.use('/items', require('./back/items'));
 // Login routes
 server.get('/auth', passport.authenticate('google', {scope: ['profile']}));
 server.get('/auth/callback', passport.authenticate('google'),
-  (request, response) => response.redirect(request.headers.referer || '/userspage.html')
+  (request, response) => response.redirect('/userspage.html')
 );
 
 // Route for asking who is logged in
