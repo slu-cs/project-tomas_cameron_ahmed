@@ -10,8 +10,8 @@
 
 
 
-  <body background="images/pub56.jpg">
-    <header>
+  <body>
+    <!-- <header>
      <ul>
       <li><a href="index.html">Home Page</a></li>
       <li><a href="menu.html">Menu</a></li>
@@ -19,15 +19,21 @@
       <li><a href="reviews.html">Reviews</a></li>
       <li><a href="userspage.html">Profile</a></li>
      </ul>
-    </header>
-
-    <footer class="bg-dark fixed-bottom p-2">
+    </header> -->
+    <div class="images hidden">
+      <img class="logo" src="images/logo.png">
+      <img class="logo" src="images/39697-O2FOCF.png" width="310.3px">
+      <a href="/auth" id="log"><img class="logo" src="images/btn_google_signin_dark_normal_web@2x.png" width="207.6px"></a>
+    </div>
+    <!-- <footer class="bg-dark fixed-bottom p-2">
       <a href="/auth" id="log" class="text-white float-right">Log in with Google</a>
-    </footer>
+    </footer> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-
+    $(document).ready(function () {
+      $('div.images').fadeIn(1000).removeClass('hidden');
+    });
     // Make Changes if user is logged in
     let self = null;
     $.ajax({method: 'GET', url: '/user'})
