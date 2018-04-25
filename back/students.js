@@ -31,6 +31,7 @@ const router = express.Router();
       if (error) return next(error);
       if (!student) return next(new Error("Not Found"));
       response.json(student);
+      }
     });
   });
 module.exports = router;
