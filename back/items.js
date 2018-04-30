@@ -22,7 +22,7 @@ const router = express.Router();
   // Get a specific menu item: TRYING TO GET TO WORK
    router.get('/:id', function(request, response, next) {
      const item = {
-       "id": request.params.id,
+       "item_id": request.params.id,
      };
 
      db.items.findOne(item, function(error, item) {

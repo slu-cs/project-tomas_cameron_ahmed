@@ -19,4 +19,18 @@ const router = express.Router();
     });
   });
 
+  // get current student
+  router.get('/:id', function(request, response, next){
+    console.log(request.params.id);
+    const student = {
+      _id : request.params.id
+    };
+
+    console.log(student);
+    db.students.findOne(student, function(error, student){
+      if (error) return next(error);
+      if (!student) return next(new Error("Not Found"));
+      response.json(student);
+    });
+  });
 module.exports = router;

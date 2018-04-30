@@ -54,7 +54,7 @@ server.use('/items', require('./back/items'));
 // Login routes
 server.get('/auth', passport.authenticate('google', {scope: ['profile']}));
 server.get('/auth/callback', passport.authenticate('google'),
-  (request, response) => response.redirect(request.headers.referer || '/')
+  (request, response) => response.redirect('/userspage.html')
 );
 
 // Route for asking who is logged in
@@ -63,7 +63,7 @@ server.get('/user', (request, response) => response.send(request.user));
 // Logout route
 server.get('/logout', function(request, response) {
   request.logout();
-  response.redirect(request.headers.referer || '/');
+  response.redirect('/index.html');
 });
 
 // Error handling
