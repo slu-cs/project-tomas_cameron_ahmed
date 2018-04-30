@@ -5,9 +5,70 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="now-ui-dashboard.css?v=1.0.1">
+    <link rel="stylesheet" href="helpers.css">
     <title>Pub 56</title>
   </head>
   <body>
+    <div class="wrapper">
+      <div class="sidebar" data-color="blue">
+        <div class="logo">
+            <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+                CT
+            </a>
+            <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                Pub 56
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                  <a href="userspage.html">
+                      <i class="now-ui-icons users_single-02"></i>
+                      <p>Profile</p>
+                  </a>
+              </li>
+              <li class="active">
+                  <a href="menu.html">
+                      <i class="now-ui-icons design_bullet-list-67"></i>
+                      <p>Menu</p>
+                  </a>
+              </li>
+            </ul>
+        </div>
+      </div>
+      <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent relative-position bg-primary fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                    <a class="navbar-brand text-dark" href="#pablo">User Profile</a>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="now-ui-icons users_single-02 text-dark"></i>
+                                p>
+                                    <span class="d-lg-none d-md-block">Account</span>
+                                </p>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right text-dark" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item text-dark" href="/auth" id="log">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
     <header>
      <ul>
       <li><a href="index.html">Home Page</a></li>
@@ -24,10 +85,12 @@
       <p class="loading">Loading items...</p>
     </main>
 
-    <footer class="bg-dark fixed-bottom p-2">
+    <!-- <footer class="bg-dark fixed-bottom p-2">
       <a href="/auth" id="log" class="text-white float-right">Log in with Google</a>
-    </footer>
-
+    </footer> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
 
