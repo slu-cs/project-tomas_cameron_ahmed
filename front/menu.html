@@ -195,7 +195,7 @@
          `);
         iArticle.on('click', 'button', function(){
           const that = $(this);
-          $.ajax({method: 'PATCH', url:`students/${self.id}/order?name=${item.item.name}&description=${item.item.description}`})
+          $.ajax({method: 'PATCH', url:`/students/${self.id}/order?name=${item.item.name}&description=${item.item.description}`})
             .fail(() => alert('could add item to the shopping cart'))
             .done(() => $('.display-3').append(notification))
         });

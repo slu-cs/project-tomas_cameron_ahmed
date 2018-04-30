@@ -35,7 +35,7 @@ const router = express.Router();
   });
 
   // add an order to the shopping cart
-  router.patch(':id/order', function(request, response, next){
+  router.patch('/:id/order', function(request, response, next){
     console.log(request.params.id);
     const student = {
       _id : request.params.id
