@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="now-ui-dashboard.css?v=1.0.1">
@@ -69,7 +69,7 @@
             </div>
         </nav>
         <!-- End Navbar -->
-    <header>
+    <!-- <header>
      <ul>
       <li><a href="index.html">Home Page</a></li>
       <li><a href="menu.html">Menu</a></li>
@@ -77,13 +77,50 @@
       <li><a href="reviews.html">Reviews</a></li>
       <li><a href="userspage.html">Profile</a></li>
      </ul>
-    </header>
+    </header> -->
 
     <h1 class="text-center display-3">Food Menu</h1>
-
-    <main id=items>
-      <p class="loading">Loading items...</p>
-    </main>
+    <div class="content">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="card card-chart">
+            <div class="card-body text-center">
+              <img src="images/noun_98633_cc.svg">
+              <h4 class="card-title">Appetizers</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card card-chart">
+            <div class="card-body text-center">
+              <img src="images/noun_1339118_cc.svg">
+              <h4 class="card-title">Sandwiches</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card card-chart">
+            <div class="card-body text-center">
+              <img src="images/noun_47310_cc.svg">
+              <h4 class="card-title">Flat bread</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card card-chart">
+            <div class="card-body text-center">
+              <img src="images/noun_1701220_cc.svg">
+              <h4 class="card-title">Soft drinks</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body all-icons">
+      <div class="row" id="items">
+        <p class="loading">Loading items...</p>
+      </div>
+    </div>
 
     <!-- <footer class="bg-dark fixed-bottom p-2">
       <a href="/auth" id="log" class="text-white float-right">Log in with Google</a>
@@ -97,12 +134,13 @@
     // Generate an article for an item
        const itemArticle = function(item) {
          const iArticle = $(`
-           <article class="card my-3">
-             <div class="card-header">
-               <a href="itemdescription?topic=${item.item_id}">${item.item.name}</a>
-               <span>$${item.price}</span>
+           <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+             <div class="font-icon-detail">
+               <img src="${item.url}">
+               <p>${item.item.name}</p>
+               <p>${item.price}</p>
              </div>
-           </article>
+           </div>
          `);
 
          return iArticle;
