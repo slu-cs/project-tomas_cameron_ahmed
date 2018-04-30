@@ -146,6 +146,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/bootstrap-notify.js"></script>
     <script>
     // Make Changes if user is logged in
     let self = null;
@@ -176,13 +177,23 @@
          const iArticle = $(`
            <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
              <div class="font-icon-detail">
+<<<<<<< HEAD
                <img src="${item.url}" style="width:300px;height:250px;">
                <a href="itemdescription?topic=${item.item_id}">${item.item.name}</a>
                <p id="itemprice">$${item.price}</p>
+=======
+               <img src="${item.url}">
+               <p id="name">${item.item.name}</p>
+               <p>${item.price}</p>
+>>>>>>> 1f0e0cae8d170850ddfc94be4a7d3c5be0fc530a
                <button class="btn btn-primary">add</button>
              </div>
            </div>
          `);
+        iArticle.on('click', 'button', function(){
+          const that = $(this);
+          showNotification('top','right',that.find('#name').text());
+        })
 
          const notification = $(`
            <div class="alert alert-success">
@@ -203,7 +214,22 @@
 
          return iArticle;
        };
+       function showNotification(from, align, item){
+          color = 'primary';
+          let name = item;
+          $.notify({
+              icon: "now-ui-icons ui-1_bell-53",
+              message: 'item has been addedd to your shopping cart'
 
+            },{
+                type: color,
+                timer: 8000,
+                placement: {
+                    from: from,
+                    align: align
+                }
+            });
+      }
 
 
        // Load items from db
@@ -215,6 +241,7 @@
             items_list = items;
             // $('#items').append(items.map(item => itemArticle(item)));
           });
+
 
     </script>
   </body>
