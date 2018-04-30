@@ -15,12 +15,12 @@ ul {
     list-style: none;
     padding: 0;
 }
-li {
+/* li {
     margin-top: 1em;
     padding-bottom: 1em;
     border-bottom: double;
     width: 20%;
-}
+} */
 
 main {
     overflow: auto;
