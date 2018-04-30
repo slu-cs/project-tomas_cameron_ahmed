@@ -82,45 +82,62 @@
     <h1 class="text-center display-3">Food Menu</h1>
     <div class="content">
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-2">
           <div class="card card-chart">
             <div class="card-body text-center">
               <img src="images/noun_98633_cc.svg">
-              <h4 class="card-title">Appetizers</h4>
+              <h4 class="card-title">Appetizer</h4>
             </div>
           </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-2">
           <div class="card card-chart">
             <div class="card-body text-center">
               <img src="images/noun_1339118_cc.svg">
-              <h4 class="card-title">Sandwiches</h4>
+              <h4 class="card-title">Sandwhich</h4>
             </div>
           </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-2">
           <div class="card card-chart">
             <div class="card-body text-center">
               <img src="images/noun_47310_cc.svg">
-              <h4 class="card-title">Flat bread</h4>
+              <h4 class="card-title">Flatbread</h4>
             </div>
           </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-2">
+          <div class="card card-chart">
+            <div class="card-body text-center">
+              <img src="images/salad.svg">
+              <h4 class="card-title">Salad</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
           <div class="card card-chart">
             <div class="card-body text-center">
               <img src="images/noun_1701220_cc.svg">
-              <h4 class="card-title">Soft drinks</h4>
+              <h4 class="card-title">Soft Drink</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card card-chart">
+            <div class="card-body text-center">
+              <img src="images/beer.svg">
+              <h4 class="card-title">Beer</h4>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="card-body all-icons">
-      <div class="row" id="items">
-        <p class="loading">Loading items...</p>
+      <div class="card-body all-icons">
+        <div class="row" id="items">
+          <p class="loading">Loading items...</p>
+        </div>
       </div>
     </div>
+
 
     <!-- <footer class="bg-dark fixed-bottom p-2">
       <a href="/auth" id="log" class="text-white float-right">Log in with Google</a>
@@ -131,6 +148,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
 
+    // clicking a category shows its elements
+      let items_list = [];
+      let items_category = [];
+      const category = $('.content .card-chart');
+      const items_div = $('#items');
+      category.on('click', function(){
+        if($('#items *').length > 0){
+          items_div.empty();
+        }
+        const that = $(this);
+        const category_name = that.find('h4').text();
+        items_category = items_list.filter(item => item.category === category_name);
+        items_div.append(items_category.map(item => itemArticle(item)));
+
+      });
     // Generate an article for an item
        const itemArticle = function(item) {
          const iArticle = $(`
@@ -157,11 +189,13 @@
          });
 
        // Load items from db
-        $.ajax({method: 'GET', url: '/items'})
+
+        $.ajax({method: 'GET', url: `/items`})
           .fail(() => $('#items .loading').text('Could Not Load Items!!'))
           .done(function(items) {
             $('#items .loading').remove();
-            $('#items').append(items.map(item => itemArticle(item)));
+            items_list = items;
+            // $('#items').append(items.map(item => itemArticle(item)));
           });
 
     </script>
