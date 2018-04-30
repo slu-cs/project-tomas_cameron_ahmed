@@ -77,7 +77,7 @@
               <div class="card card-chart">
                 <div class="card-header">
                   <h5 class="card-category">Current Balance</h5>
-                  <h4 class="card-title">1000 $</h4>
+                  <h4 class="card-title" id="balance">1000 $</h4>
                   <div class="dropdown">
                       <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                           <i class="now-ui-icons fa loader_gear"></i>
@@ -124,7 +124,7 @@
                       </div>
                   </div>
                 </div>
-                <div class="card-body text-center">
+                <div class="card-body text-center" id="cart">
                   <i class="now-ui-icons shopping_cart-simple big-text"></i>
                   <h5 class="card-title">Empty Cart</h5>
                   <button type="button" class="btn btn-primary">Order</button>
@@ -162,7 +162,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1f0e0cae8d170850ddfc94be4a7d3c5be0fc530a
     // Make Changes if user is logged in
     let self = null;
     $.ajax({method: 'GET', url: '/user'})
@@ -172,6 +175,13 @@
           console.log(self)
           $('#log').attr('href', '/logout').text('Log out');
           $(`#${self.id}`).show();
+          $.ajax({method :'GET', url: `/students/${self.id}`})
+            .fail(() => alert('not found'))
+            .done(function(student){
+              $('#balance').text(`${student.balance}`);
+              $('#cart').empty();
+              $('#cart').append(student.order.map(item => itemArticle(item)));
+            })
         }
       });
 
