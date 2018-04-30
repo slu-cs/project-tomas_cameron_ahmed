@@ -90,12 +90,12 @@
                       </div>
                   </div>
                 </div>
-                <div class="card-body">
+                <div id="profilebody" class="card-body">
                   <form>
                     <div class="form-control">
                       <label>amount</label>
                       <input type="text" class="form-control" placeholder="100" required>
-                      <button class="btn btn-primary">
+                      <button type="submit" class="btn btn-primary">
                         Add Funds
                       </button>
                     </div>
@@ -140,6 +140,15 @@
         </div>
       </div>
     </div>
+    <header>
+     <ul>
+      <li><a href="index.html">Home Page</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="foodorder.html">Place an Order</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="userspage.html">Profile</a></li>
+     </ul>
+    </header>
 
     <main id="allStudents" class="container-fluid">
       <p class="loading">Loading Student Profile...</p>
@@ -153,13 +162,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1f0e0cae8d170850ddfc94be4a7d3c5be0fc530a
     // Make Changes if user is logged in
     let self = null;
     $.ajax({method: 'GET', url: '/user'})
       .done(function(user) {
-        console.log(user);
         if (user) {
           self = user;
+          console.log(self)
           $('#log').attr('href', '/logout').text('Log out');
           $(`#${self.id}`).show();
           $.ajax({method :'GET', url: `/students/${self.id}`})
