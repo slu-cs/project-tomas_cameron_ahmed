@@ -13,11 +13,11 @@
     <div class="wrapper">
       <div class="sidebar" data-color="blue">
         <div class="logo">
-            <a href="http://www.stlawu.edu/" class="simple-text logo-mini">
-                SLU
-            </a>
+          <a href="http://www.stlawu.edu/" class="simple-text logo-mini">
+              SLU
+          </a>
             <a href="http://www.stlawu.edu/student-activities-and-leadership/pub-56" class="simple-text logo-normal">
-                Pub 56
+              Pub 56
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -49,7 +49,7 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand text-dark" href="#pablo">Menu</a>
+                    <a class="navbar-brand text-dark" href="#pablo">User Profile</a>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav">
@@ -80,63 +80,56 @@
     </header> -->
 
     <h1 class="text-center display-3">Food Menu</h1>
-    <div id="prompt">
-      <h3 class="text-center display-5">Sandwhiches are served with your choice of Fries or Coleslaw!</h3>
-    </div>
-  </br>
     <div class="content">
       <div class="row">
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div class="card card-chart" style="width:250px;height:200px;">
             <div class="card-body text-center">
-              <img src="images/noun_98633_cc.svg">
+              <img src="images/noun_98633_cc.svg" style="width:75px;height:75px;">
               <h4 class="card-title">Appetizer</h4>
             </div>
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div class="card card-chart" style="width:250px;height:200px;">
             <div class="card-body text-center">
-              <img src="images/noun_1339118_cc.svg">
+              <img src="images/noun_1339118_cc.svg" style="width:75px;height:75px;">
               <h4 class="card-title">Sandwhich</h4>
             </div>
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div class="card card-chart" style="width:250px;height:200px;">
             <div class="card-body text-center">
-              <img src="images/noun_47310_cc.svg">
+              <img src="images/noun_47310_cc.svg" style="width:75px;height:75px;">
               <h4 class="card-title">Flatbread</h4>
             </div>
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div class="card card-chart" style="width:250px;height:200px;">
             <div class="card-body text-center">
-              <img src="images/salad.svg">
+              <img src="images/salad.svg" style="width:75px;height:75px;">
               <h4 class="card-title">Salad</h4>
             </div>
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div class="card card-chart" style="width:250px;height:200px;">
             <div class="card-body text-center">
-              <img src="images/noun_1701220_cc.svg">
+              <img src="images/noun_1701220_cc.svg" style="width:75px;height:75px;">
               <h4 class="card-title">Soft Drink</h4>
             </div>
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div class="card card-chart" style="width:250px;height:200px;">
             <div class="card-body text-center">
-              <img src="images/beer.svg">
+              <img src="images/beer.svg" style="width:75px;height:75px;">
               <h4 class="card-title">Beer</h4>
             </div>
           </div>
         </div>
-      </div>
-      <div id="prompt2">
-        <h3 class="text-center display-5">Need Dressing? Just ask!</h3>
       </div>
       <div class="card-body all-icons">
         <div class="row" id="items">
@@ -144,7 +137,6 @@
         </div>
       </div>
     </div>
-
 
 
     <!-- <footer class="bg-dark fixed-bottom p-2">
@@ -184,9 +176,9 @@
          const iArticle = $(`
            <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
              <div class="font-icon-detail">
-               <img src="${item.url}">
-               <p>${item.item.name}</p>
-               <p>${item.price}</p>
+               <img src="${item.url}" style="width:300px;height:250px;">
+               <a href="itemdescription?topic=${item.item_id}">${item.item.name}</a>
+               <p id="itemprice">$${item.price}</p>
                <button class="btn btn-primary">add</button>
              </div>
            </div>
@@ -201,12 +193,14 @@
                  <b> Success - </b> This is a regular notification made with ".alert-success"</span>
          </div>
          `);
+
         iArticle.on('click', 'button', function(){
           const that = $(this);
           $.ajax({method: 'PATCH', url:`/students/${self.id}/order?name=${item.item.name}&description=${item.item.description}`})
-            .fail(() => alert('could add item to the shopping cart'))
+            .fail(() => alert('Could not add item to the shopping cart'))
             .done(() => $('.display-3').append(notification))
         });
+
          return iArticle;
        };
 
