@@ -18,6 +18,26 @@ db.createCollection('items', {validator: {$and: [
   {category: {$type: 'string', $ne: ''}},
 ]}});
 
+db.createCollection('reviews', {validator: {$and: [
+  {review_id: {$type: 'string', $ne: ''}},
+  {'review.review': {$type: 'string', $ne: ''}},
+  {'review.authorID': {$type: 'string', $ne: ''}},
+  {'review.authorName': {$type: 'string', $ne: ''}},
+]}});
+
+db.reviews.insertMany([
+  {
+    review_id: 1,
+    review: {review: 'Best place to eat!', authorID: '112913515548615287015', authorName: 'Cameron Pilarski'},
+
+  },
+  {
+    review_id: 2,
+    review: {review: 'Favorite place on campus!', authorID: '113900384673070663488', authorName: 'Tomas Cespedes'},
+
+  },
+]);
+
 db.students.insertMany([
   {
     balance:1000.00,
