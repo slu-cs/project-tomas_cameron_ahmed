@@ -33,4 +33,23 @@ const router = express.Router();
       response.json(student);
     });
   });
+
+  // add an order to the shopping cart
+  router.patch(':id/order', function(request, response, next){
+    console.log(request.params.id);
+    const student = {
+      _id : request.params.id
+    };
+     const insertedItem = {
+           $push: {
+             order: {name: decodeURI(request.query.name),
+                    description: decodeURI(request.query.description)
+             }
+           }
+     }
+     db.students.updateOne(student, insertedItem, function(error, report){
+       if (error) return next(error);
+     })
+
+  });
 module.exports = router;
