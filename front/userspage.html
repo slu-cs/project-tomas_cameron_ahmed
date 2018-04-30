@@ -163,23 +163,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
 
-    // Generate a header for the opinion
-    const userArticles = function(student) {
-      const tempUserArticle =  $(`
-        <header class="card-body" id="${student._id}">
-          <h1>${student.student.name} (${student.student.id})</h1>
-          <p>$${student.balance}</p>
-        </header>
-      `);
-
-      if (!self || self.id !== student._id) {
-        $('.card-body').prop('hidden', false);
-      }
-
-
-      return tempUserArticle;
-    };
-
     // Make Changes if user is logged in
     let self = null;
     $.ajax({method: 'GET', url: '/user'})
