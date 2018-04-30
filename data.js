@@ -72,7 +72,7 @@ db.items.insertMany([
     item: {name: 'Mozzarella Sticks', description: 'Stuffed with fresh mozzarella cheese, these mozzarella sticks will melt in your mouth!'},
     price: 7.00,
     item_id: '103',
-    url: "https://allshecooks.com/wp-content/uploads/2013/10/mozzarella-sticks.jpg",
+    url: "http://www.frompastatopaleo.com/wp-content/uploads/2013/06/sweetpotatofries.jpg",
     category: 'Appetizer',
   },
   {
@@ -111,7 +111,7 @@ db.items.insertMany([
     category: 'Appetizer',
   },
   {
-    item: {name: 'Corckscrew Shrimp', description: 'Shrimp fried and dipped in Buffalo sauce'},
+    item: {name: 'Buffalo Corckscrew Shrimp', description: 'Shrimp fried and dipped in Buffalo sauce'},
     price: 6.00,
     item_id: '109',
     url: "http://dzj6qehhi7tia.cloudfront.net/wp-content/uploads/2015/02/Buffalo-Shrimp.jpg",
