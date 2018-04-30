@@ -25,13 +25,13 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
               <li class="active">
-                  <a href="../examples/user.html">
+                  <a href="userspage.html">
                       <i class="now-ui-icons users_single-02"></i>
                       <p>Profile</p>
                   </a>
               </li>
               <li>
-                  <a href="../examples/tables.html">
+                  <a href="menu.html">
                       <i class="now-ui-icons design_bullet-list-67"></i>
                       <p>Menu</p>
                   </a>
@@ -91,9 +91,43 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <button class="btn btn-primary">
-                    Add Funds
-                  </button>
+                  <form>
+                    <div class="form-control">
+                      <label>amount</label>
+                      <input type="text" class="form-control" placeholder="100" required>
+                      <button class="btn btn-primary">
+                        Add Funds
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-chart">
+                <div class="card-header">
+                  <h5 class="card-category">Shopping Cart</h5>
+                  <div class="dropdown">
+                      <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                          <i class="now-ui-icons fa loader_gear"></i>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-right">
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                          <a class="dropdown-item text-danger" href="#">Remove Data</a>
+                      </div>
+                  </div>
+                </div>
+                <div class="card-body text-center">
+                  <i class="now-ui-icons shopping_cart-simple big-text"></i>
+                  <h5 class="card-title">Empty Cart</h5>
+                  <button type="button" class="btn btn-primary">Order</button>
                 </div>
                 <div class="card-footer">
                     <div class="stats">

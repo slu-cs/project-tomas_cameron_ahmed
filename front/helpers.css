@@ -1,3 +1,6 @@
 .relative-position{
   position: relative;
 }
+.big-text{
+  font-size: 5rem;
+}
