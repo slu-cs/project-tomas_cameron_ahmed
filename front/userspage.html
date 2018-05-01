@@ -146,6 +146,8 @@
         </div>
       </div>
     </div>
+
+    // Header
     <header>
      <ul>
       <li><a href="index.html">Home Page</a></li>
@@ -163,11 +165,28 @@
     <!-- <footer class="bg-dark fixed-bottom p-2">
       <a href="/auth" id="log" class="text-white float-right">Log in with Google</a>
     </footer> -->
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+
+    // Article for student's cart
+    const itemCart = function (item){
+      const itemDiv = $(`
+        <div class="alert alert-info">
+          <button type="button" aria-hidden="true" class="close">
+            <i class="now-ui-icons ui-1_simple-remove"></i>
+          </button>
+          <span>${item.name}</span>
+        </div>
+        }
+        `)
+
+        return itemDiv;
+    }
+
     // Make Changes if user is logged in
     let self = null;
     $.ajax({method: 'GET', url: '/user'})
@@ -182,11 +201,14 @@
             .done(function(student){
               $('#balance').text(`${student.balance}`);
               $('#cart').empty();
-              $('#cart').append(student.order.map(item => itemArticle(item)));
+              $('#cart').append(student.order.map(item => itemCart(item)));
             })
         }
       });
 
+
+
+      // Function to add funds to a students balance
         function addfunds(elem){
           const form = $(elem);
           const fundTemp = form.find('input').val();
