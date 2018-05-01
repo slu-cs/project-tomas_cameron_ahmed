@@ -36,6 +36,12 @@
                       <p>Menu</p>
                   </a>
               </li>
+              <li>
+                  <a href="reviews.html">
+                      <i class="now-ui-icons ui-2_like"></i>
+                      <p>Reviews</p>
+                  </a>
+              </li>
             </ul>
         </div>
       </div>
@@ -91,9 +97,9 @@
                   </div>
                 </div>
                 <div id="profilebody" class="card-body">
-                  <form>
+                  <form id="funds" onsubmit="addfunds(this)">
                     <div class="form-control">
-                      <label>amount</label>
+                      <label>Amount</label>
                       <input type="text" class="form-control" placeholder="100" required>
                       <button type="submit" class="btn btn-primary">
                         Add Funds
@@ -180,6 +186,16 @@
             })
         }
       });
+
+        function addfunds(elem){
+          const form = $(elem);
+          const fundTemp = form.find('input').val();
+          $.ajax({method :'PATCH', url: `/students/${self.id}/addfunds?funds=${fundTemp}`})
+            .fail(() => alert('Could not add funds'))
+            .done(function(student) {
+              $('#balance').text(`${student.balance}`);
+            })
+        }
 
     </script>
   </body>

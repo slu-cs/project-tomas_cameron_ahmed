@@ -31,7 +31,8 @@ const router = express.Router();
       if (error) return next(error);
       if (!student) return next(new Error("Not Found"));
       response.json(student);
-    });
+    })
+
   });
 
   // add an order to the shopping cart
@@ -50,6 +51,29 @@ const router = express.Router();
      db.students.updateOne(student, insertedItem, function(error, report){
        if (error) return next(error);
      })
-
   });
+
+// db.books.updateOne({_id: 'B1'}, {$inc: {copies: 1}})
+
+  router.patch('/:id/addfunds', function(request, response, next){
+    const student = {
+      _id : request.params.id
+    };
+    const updatedBalance = {
+          $inc: {
+            balance: parseInt(request.query.funds),
+            }
+          }
+
+
+    db.students.updateOne(student, updatedBalance, function(error, report){
+      if (error) return next(error);
+      db.students.findOne(student, function(error, student){
+        if (error) return next(error);
+        if (!student) return next(new Error("Not Found"));
+        response.json(student);
+      })
+    })
+  });
+
 module.exports = router;
