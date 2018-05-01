@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
     <link rel="stylesheet" type="text/css" href="now-ui-dashboard.css?v=1.0.1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="helpers.css">
     <title>Pub 56</title>
   </head>
@@ -13,11 +15,11 @@
     <div class="wrapper">
       <div class="sidebar" data-color="blue">
         <div class="logo">
-          <a href="http://www.stlawu.edu/" class="simple-text logo-mini">
-              SLU
-          </a>
+            <a href="http://www.stlawu.edu/" class="simple-text logo-mini">
+                SLU
+            </a>
             <a href="http://www.stlawu.edu/student-activities-and-leadership/pub-56" class="simple-text logo-normal">
-              Pub 56
+                Pub 56
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -32,6 +34,12 @@
                   <a href="menu.html">
                       <i class="now-ui-icons design_bullet-list-67"></i>
                       <p>Menu</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="reviews.html">
+                      <i class="now-ui-icons ui-2_like"></i>
+                      <p>Reviews</p>
                   </a>
               </li>
             </ul>
@@ -49,14 +57,13 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand text-dark" href="#pablo">User Profile</a>
+                    <a class="navbar-brand text-dark" href="#">Food Menu</a>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="now-ui-icons users_single-02 text-dark"></i>
-                                p>
                                     <span class="d-lg-none d-md-block">Account</span>
                                 </p>
                             </a>
@@ -80,56 +87,63 @@
     </header> -->
 
     <h1 class="text-center display-3">Food Menu</h1>
+    <div id="prompt">
+      <h3 class="text-center display-5">Sandwhiches are served with your choice of Fries or Coleslaw!</h3>
+    </div>
+    </br></br>
     <div class="content">
       <div class="row">
         <div class="col-lg-2">
-          <div class="card card-chart" style="width:250px;height:200px;">
+          <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/noun_98633_cc.svg" style="width:75px;height:75px;">
+              <img src="images/noun_98633_cc.svg">
               <h4 class="card-title">Appetizer</h4>
             </div>
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart" style="width:250px;height:200px;">
+          <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/noun_1339118_cc.svg" style="width:75px;height:75px;">
+              <img src="images/noun_1339118_cc.svg">
               <h4 class="card-title">Sandwhich</h4>
             </div>
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart" style="width:250px;height:200px;">
+          <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/noun_47310_cc.svg" style="width:75px;height:75px;">
+              <img src="images/noun_47310_cc.svg">
               <h4 class="card-title">Flatbread</h4>
             </div>
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart" style="width:250px;height:200px;">
+          <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/salad.svg" style="width:75px;height:75px;">
+              <img src="images/salad.svg">
               <h4 class="card-title">Salad</h4>
             </div>
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart" style="width:250px;height:200px;">
+          <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/noun_1701220_cc.svg" style="width:75px;height:75px;">
+              <img src="images/noun_1701220_cc.svg">
               <h4 class="card-title">Soft Drink</h4>
             </div>
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart" style="width:250px;height:200px;">
+          <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/beer.svg" style="width:75px;height:75px;">
+              <img src="images/beer.svg">
               <h4 class="card-title">Beer</h4>
             </div>
           </div>
         </div>
+      </div>
+      <div id="prompt2">
+        <h3 class="text-center display-5">Need Dressing? Just ask!</h3>
       </div>
       <div class="card-body all-icons">
         <div class="row" id="items">
@@ -139,6 +153,7 @@
     </div>
 
 
+
     <!-- <footer class="bg-dark fixed-bottom p-2">
       <a href="/auth" id="log" class="text-white float-right">Log in with Google</a>
     </footer> -->
@@ -146,7 +161,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/bootstrap-notify.js"></script>
     <script>
     // Make Changes if user is logged in
     let self = null;
@@ -177,17 +191,13 @@
          const iArticle = $(`
            <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
              <div class="font-icon-detail">
-               <img src="${item.url}" style="width:300px;height:250px;">
-               <a href="itemdescription?topic=${item.item_id}">${item.item.name}</a>
-               <p id="itemprice">$${item.price}</p>
+               <img src="${item.url}">
+               <p>${item.item.name}</p>
+               <p>${item.price}</p>
                <button class="btn btn-primary">add</button>
              </div>
            </div>
          `);
-        iArticle.on('click', 'button', function(){
-          const that = $(this);
-          showNotification('top','right',that.find('#name').text());
-        })
 
          const notification = $(`
            <div class="alert alert-success">
@@ -198,32 +208,15 @@
                  <b> Success - </b> This is a regular notification made with ".alert-success"</span>
          </div>
          `);
-
         iArticle.on('click', 'button', function(){
           const that = $(this);
           $.ajax({method: 'PATCH', url:`/students/${self.id}/order?name=${item.item.name}&description=${item.item.description}`})
-            .fail(() => alert('Could not add item to the shopping cart'))
+            .fail(() => alert('could add item to the shopping cart'))
             .done(() => $('.display-3').append(notification))
         });
-
          return iArticle;
        };
-       function showNotification(from, align, item){
-          color = 'primary';
-          let name = item;
-          $.notify({
-              icon: "now-ui-icons ui-1_bell-53",
-              message: 'item has been addedd to your shopping cart'
 
-            },{
-                type: color,
-                timer: 8000,
-                placement: {
-                    from: from,
-                    align: align
-                }
-            });
-      }
 
 
        // Load items from db
@@ -235,7 +228,6 @@
             items_list = items;
             // $('#items').append(items.map(item => itemArticle(item)));
           });
-
 
     </script>
   </body>

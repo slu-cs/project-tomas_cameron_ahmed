@@ -18,6 +18,26 @@ db.createCollection('items', {validator: {$and: [
   {category: {$type: 'string', $ne: ''}},
 ]}});
 
+db.createCollection('reviews', {validator: {$and: [
+  {review_id: {$type: 'string', $ne: ''}},
+  {'review.review': {$type: 'string', $ne: ''}},
+  {'review.authorID': {$type: 'string', $ne: ''}},
+  {'review.authorName': {$type: 'string', $ne: ''}},
+]}});
+
+db.reviews.insertMany([
+  {
+    review_id: 1,
+    review: {review: 'Best place to eat!', authorID: '112913515548615287015', authorName: 'Cameron Pilarski'},
+
+  },
+  {
+    review_id: 2,
+    review: {review: 'Favorite place on campus!', authorID: '113900384673070663488', authorName: 'Tomas Cespedes'},
+
+  },
+]);
+
 db.students.insertMany([
   {
     balance:1000.00,
@@ -72,7 +92,7 @@ db.items.insertMany([
     item: {name: 'Mozzarella Sticks', description: 'Stuffed with fresh mozzarella cheese, these mozzarella sticks will melt in your mouth!'},
     price: 7.00,
     item_id: '103',
-    url: "https://allshecooks.com/wp-content/uploads/2013/10/mozzarella-sticks.jpg",
+    url: "http://www.frompastatopaleo.com/wp-content/uploads/2013/06/sweetpotatofries.jpg",
     category: 'Appetizer',
   },
   {
@@ -111,7 +131,7 @@ db.items.insertMany([
     category: 'Appetizer',
   },
   {
-    item: {name: 'Corckscrew Shrimp', description: 'Shrimp fried and dipped in Buffalo sauce'},
+    item: {name: 'Buffalo Corckscrew Shrimp', description: 'Shrimp fried and dipped in Buffalo sauce'},
     price: 6.00,
     item_id: '109',
     url: "http://dzj6qehhi7tia.cloudfront.net/wp-content/uploads/2015/02/Buffalo-Shrimp.jpg",

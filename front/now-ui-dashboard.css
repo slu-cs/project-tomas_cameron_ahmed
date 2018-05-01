@@ -2397,13 +2397,13 @@ Created using IcoMoon - icomoon.io
   font-size: 32px; }
 
 .all-icons .font-icon-detail p {
-  margin: 0px auto 0;
+  margin: 25px auto 0;
   width: 100%;
   text-align: center;
   display: block;
-  color: #000000;
+  color: #B8B8B8;
   padding: 0 10px;
-  font-size: 1em; }
+  font-size: 0.7142em; }
 
 .table .img-wrapper {
   width: 40px;
