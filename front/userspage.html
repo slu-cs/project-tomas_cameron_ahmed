@@ -203,6 +203,7 @@
               $('#balance').text(`${student.balance}`);
               $('#cart').empty();
               $('#cart').append(student.order.map(item => itemCart(item)));
+              $('#pablo').text(student.student.name)
             })
         }
       });
