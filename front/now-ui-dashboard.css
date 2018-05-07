@@ -1990,7 +1990,8 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 
 img {
   max-width: 100%;
-  border-radius: 0.1875rem; }
+  border-radius: 0.1875rem;
+}
 
 .img-raised {
   -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
@@ -2401,9 +2402,9 @@ Created using IcoMoon - icomoon.io
   width: 100%;
   text-align: center;
   display: block;
-  color: #B8B8B8;
+  color: #00000;
   padding: 0 10px;
-  font-size: 0.7142em; }
+  font-size: 1em; }
 
 .table .img-wrapper {
   width: 40px;
@@ -2864,11 +2865,15 @@ Created using IcoMoon - icomoon.io
   display: inline-block;
   position: relative;
   width: 100%;
+  height: 100%;
   margin-bottom: 20px;
   -webkit-box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
           box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1); }
+
   .card .card-body {
-    padding: 15px 15px 10px 15px; }
+    padding: 25px 15px 1px 11px;
+    line-height: 4;
+   }
     .card .card-body.table-full-width {
       padding-left: 0;
       padding-right: 0; }
