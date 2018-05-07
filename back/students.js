@@ -9,6 +9,7 @@ const router = express.Router();
     if (error) throw error;
     db = client.db('pub56');
     db.students = db.collection('students');
+    db.items = db.collection('items');
   });
 
   // Get all the students
@@ -42,22 +43,39 @@ const router = express.Router();
       const student = {
         _id : request.params.id
       };
-       const insertedItem = {
+       const reterivedItem = {
                'item_id': request.query.item_id
        }
-       console.log(insertedItem);
-       db.items.findOne(insertedItem, function(error, item){
+       db.items.findOne(reterivedItem, function(error, item){
          console.log('here');
          if (error) return next(error);
-         let test = {
-            $push:{
-              order: item
+         item['quantity'] = 0;
+         let insertedItem = {
+           $addToSet : {
+             order : item
+           }
+         }
+         // let final = {};
+         // let itemF = {};
+         // itemF['order'] = item;
+         // final['$push']=itemF;
+          db.students.updateOne(student, insertedItem, function(error, report){
+            let needToBeIncrementedItem = student;
+            needToBeIncrementedItem['order.item_id'] = item.item_id;
+            console.log(needToBeIncrementedItem);
+            let incrementedItem = {
+              $inc : {
+                'order.$.quantity': 1
+              }
             }
-          }
-          db.students.updateOne(student, test, function(error, report){
-             if (error) return next(error);
+            if (report.matchedCount === 0){
+              db.students.updateOne(needToBeIncrementedItem, incrementedItem, function(error, report){
+                if (error) return next(error);
+              })
+            }
+            if (error) return next(error);
            })
-         })
+         });
        // }
        // else {
        //   console.log("You do not have access!!");
@@ -95,9 +113,9 @@ const router = express.Router();
   });
 
   // Delete an item from shopping cart
-  router.delete('/:item_id/order', function(request, response, next) {
+  router.delete('/:id/order', function(request, response, next) {
     const order = {
-      item_id: new mongodb.ObjectId(request.params.item_id),
+      item_id: new mongodb.ObjectId(request.query.item_id),
     };
 
     const removedItem = {
