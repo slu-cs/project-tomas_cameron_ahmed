@@ -19,7 +19,7 @@ const router = express.Router();
     });
   });
 
-  // Get a specific menu item: TRYING TO GET TO WORK
+  // Get a specific menu item
    router.get('/:id', function(request, response, next) {
      const item = {
        "item_id": request.params.id,
@@ -31,6 +31,7 @@ const router = express.Router();
        response.json(item);
      });
    });
+
 
 
 module.exports = router;
