@@ -187,7 +187,7 @@
 
         itemDiv.on('click', 'button', function(){
           const that = $(this);
-          $.ajax({method: 'DELETE', url:`/students/${self.item_id}/order?name=${item.name}`})
+          $.ajax({method: 'DELETE', url:`/students/${item.item_id}/order?name=${item.name}`})
             .fail(() => alert('Could not remove item'))
             .done(function() {
             })

@@ -58,8 +58,6 @@ const router = express.Router();
      }
   });
 
-// db.books.updateOne({_id: 'B1'}, {$inc: {copies: 1}})
-
   router.patch('/:id/addfunds', function(request, response, next){
     if (user.id === request.params.id) {
       const student = {
@@ -87,14 +85,15 @@ const router = express.Router();
   });
 
   // Delete an item from shopping cart
-  router.delete('/:id/order', function(request, response, next) {
+  router.delete('/:item_id/order', function(request, response, next) {
     const order = {
-      _id: new mongodb.ObjectId(request.params.id),
+      item_id: new mongodb.ObjectId(request.params.item_id),
     };
 
     const removedItem = {
           $pull: {
             order: {name: decodeURI(request.query.name),
+            description: decodeURI(request.query.description),
             }
           }
     }
