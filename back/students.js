@@ -38,28 +38,38 @@ const router = express.Router();
   // add an order to the shopping cart
   router.patch('/:id/order', function(request, response, next){
     console.log(request.params.id);
-    if (user.id === request.params.id) {
+    // if (user.id === request.params.id) {
       const student = {
         _id : request.params.id
       };
        const insertedItem = {
-             $push: {
-               order: {name: decodeURI(request.query.name),
-                      description: decodeURI(request.query.description)
-               }
-             }
+               'item_id': request.query.item_id
        }
-       db.students.updateOne(student, insertedItem, function(error, report){
+       console.log(insertedItem);
+       db.items.findOne(insertedItem, function(error, item){
+         console.log('here');
          if (error) return next(error);
-       })
-     }
-     else {
-       console.log("You do not have access!!");
-     }
-  });
+         let test = {
+            $push:{
+              order: item
+            }
+          }
+          db.students.updateOne(student, test, function(error, report){
+             if (error) return next(error);
+           })
+         })
+       // }
+       // else {
+       //   console.log("You do not have access!!");
+       // }
+     });
+       // db.students.updateOne(student, insertedItem, function(error, report){
+       //   if (error) return next(error);
+       //
+       // })
 
   router.patch('/:id/addfunds', function(request, response, next){
-    if (user.id === request.params.id) {
+    // if (user.id === request.params.id) {
       const student = {
         _id : request.params.id
       };
@@ -78,10 +88,10 @@ const router = express.Router();
           response.json(student);
         })
       })
-    }
-    else {
-      Console.log("You do not have access!!");
-    }
+    // }
+    // else {
+    //   Console.log("You do not have access!!");
+    // }
   });
 
   // Delete an item from shopping cart

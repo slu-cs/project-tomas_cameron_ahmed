@@ -203,7 +203,7 @@
 
         iArticle.on('click', 'button', function(){
           const that = $(this);
-          $.ajax({method: 'PATCH', url:`/students/${self.id}/order?name=${item.item.name}&description=${item.item.description}`})
+          $.ajax({method: 'PATCH', url:`/students/${self.id}/order?item_id=${item.item_id}`})
             .fail(() => alert('could add item to the shopping cart'))
             .done(function() {
             })

@@ -57,7 +57,7 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand text-dark" href="#pablo">User Profile</a>
+                    <a class="navbar-brand text-dark" href="#pablo" id="notpablo">User Profile</a>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav">
@@ -100,7 +100,7 @@
                   <form id="funds" onsubmit="addfunds(this)">
                     <div class="form-control">
                       <label>Amount</label>
-                      <input type="text" class="form-control" placeholder="100" required>
+                      <input type="text" class="form-control" placeholder="amount" required>
                       <button type="submit" class="btn btn-primary">
                         Add Funds
                       </button>
@@ -180,7 +180,7 @@
           <button type="button" aria-hidden="true" class="close">
             <i class="now-ui-icons ui-1_simple-remove"></i>
           </button>
-          <span>${item.name}</span>
+          <span>${item.item.name}</span>
         </div>
         }
         `)
@@ -190,6 +190,7 @@
           $.ajax({method: 'DELETE', url:`/students/${item.item_id}/order?name=${item.name}`})
             .fail(() => alert('Could not remove item'))
             .done(function() {
+              that.remove();
             })
         });
 
@@ -211,7 +212,7 @@
               $('#balance').text(`${student.balance}`);
               $('#cart').empty();
               $('#cart').append(student.order.map(item => itemCart(item)));
-              $('#pablo').text(student.student.name)
+              $('#notpablo').text(student.student.name);
             })
         }
       });

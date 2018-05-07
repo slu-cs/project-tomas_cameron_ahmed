@@ -19,7 +19,7 @@ db.createCollection('items', {validator: {$and: [
 ]}});
 
 db.createCollection('reviews', {validator: {$and: [
-  {review_id: {$type: 'string', $ne: ''}},
+  {review_id: {$type: 'float', $ne: ''}},
   {'review.review': {$type: 'string', $ne: ''}},
   {'review.authorID': {$type: 'string', $ne: ''}},
   {'review.authorName': {$type: 'string', $ne: ''}},
