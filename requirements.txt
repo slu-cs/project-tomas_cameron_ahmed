@@ -6,14 +6,30 @@ Features due by 5/10:
 
 Features due by 4/30:
  1) A logged-in user can add money to their balance. <DONE>
- 2) A logged-in user can add items to their shopping cart. <1/2 DONE>
+ 2) A logged-in user can add items to their shopping cart. <DONE>
  3) A logged-in user with a non-empty cart can "place an order."
  4) Any user can filter the menu by some useful criterion (perhaps food category or keyword?). <DONE>
 
-Teamwork balancing requirement:
+Teamwork balancing:
 - Ahmed needs to be the primary committer for at least three of these features.
 - It is acceptable to do this by pair/team programming where Ahmed is the driver.
 - It's also acceptable to divide the work, as long as Ahmed is assigned three features.
+
+Feedback:
+- Completed 3/4 requirements.
+- Placing an order isn't addressed yet.
+- Sometimes when I add funds I see an error saying it failed (even though it worked).
+- Consider making it more obvious how to get to the shopping cart once there is something in it.
+- It would be visually nicer if the menu images were all the same size so they would line up more cleanly.
+- See if you can make it obvious that the menu category images are clickable - perhaps just make them links?
+- On the profile page where it says USER PROFILE perhaps it could say the user's name instead.
+- The logout link is hard to see; consider restyling or relocating it.
+- You're going to need some way for new users to begin on the site.
+  - Perhaps a button for creating a profile (with $0) if they don't have one.
+  - Or perhaps this happens automatically when they log in (your choice).
+- Watch out for access control issues on the back end:
+  - Currently anyone can add funds to anyone else's profile, because the server doesn't check who is logged in.
+  - Similarly, anyone can add items to anyone else's cart, because the server doesn't check who is logged in.
 
 ------------------------------------------------------------------------------
 
@@ -24,8 +40,8 @@ Features due by 4/16:
  4) Profile page for a logged-in user that shows the user's balance and lists items in the user's shopping cart. <DONE>
 
 Sample data you'll probably need to demonstrate these features:
-- A menu collection (with some menu items)
-- A users collection (with a couple of users)
+- A menu collection (with some menu items).
+- A users collection (with a couple of users).
 
 Feedback:
 - Completed 3/4 requirements (1,2,3) and started the 4th.

@@ -96,7 +96,7 @@
         <div class="col-lg-2">
           <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/noun_98633_cc.svg">
+              <img src="images/noun_98633_cc.svg" width="75%" height="100">
               <h4 class="card-title">Appetizer</h4>
             </div>
           </div>
@@ -104,7 +104,7 @@
         <div class="col-lg-2">
           <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/noun_1339118_cc.svg">
+              <img src="images/noun_1339118_cc.svg" width="75%" height="100">
               <h4 class="card-title">Sandwhich</h4>
             </div>
           </div>
@@ -112,7 +112,7 @@
         <div class="col-lg-2">
           <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/noun_47310_cc.svg">
+              <img src="images/noun_47310_cc.svg" width="75%" height="100">
               <h4 class="card-title">Flatbread</h4>
             </div>
           </div>
@@ -120,7 +120,7 @@
         <div class="col-lg-2">
           <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/salad.svg">
+              <img src="images/salad.svg" width="75%" height="100">
               <h4 class="card-title">Salad</h4>
             </div>
           </div>
@@ -128,7 +128,7 @@
         <div class="col-lg-2">
           <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/noun_1701220_cc.svg">
+              <img src="images/noun_1701220_cc.svg" width="75%" height="100">
               <h4 class="card-title">Soft Drink</h4>
             </div>
           </div>
@@ -136,7 +136,7 @@
         <div class="col-lg-2">
           <div class="card card-chart">
             <div class="card-body text-center">
-              <img src="images/beer.svg">
+              <img src="images/beer.svg" width="75%" height="100">
               <h4 class="card-title">Beer</h4>
             </div>
           </div>
@@ -192,9 +192,10 @@
          const iArticle = $(`
            <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
              <div class="font-icon-detail">
-               <img src="${item.url}">
-               <p id="name">${item.item.name}</p>
-               <p>${item.price}</p>
+               <img src="${item.url}" width="90%" height="200">
+               <a href="itemdescription?topic=${item.item_id}">
+                <p id="name">${item.item.name} $${item.price}</p>
+               <a/>
                <button class="btn btn-primary" onclick="showNotification('top','right')">add</button>
              </div>
            </div>
@@ -202,7 +203,7 @@
 
         iArticle.on('click', 'button', function(){
           const that = $(this);
-          $.ajax({method: 'PATCH', url:`/students/${self.id}/order?name=${item.item.name}&description=${item.item.description}`})
+          $.ajax({method: 'PATCH', url:`/students/${self.id}/order?item_id=${item.item_id}`})
             .fail(() => alert('could add item to the shopping cart'))
             .done(function() {
             })

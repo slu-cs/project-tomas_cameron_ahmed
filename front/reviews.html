@@ -88,6 +88,15 @@
 
     <h1 class="text-center display-3">Pub 56 Reviews</h1>
 
+    <form id="new" class="container mb-5">
+      <textarea id="review" placeholder="What do you think?" class="form-control my-1" required></textarea>
+      <button type="submit" class="btn btn-primary text-center">Submit</button>
+    </form>
+
+    <div id="customerReviews">
+      <p class="loading">Loading reviews...</p>
+    </div>
+
 
 
     <!-- <footer class="bg-dark fixed-bottom p-2">
@@ -98,6 +107,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+
+    // Generate an article for a review
+    const reviewArticle = function(review) {
+      const article = $(`
+        <article id="${review.review_id}" class="border-bottom my-3 pb-3">
+          <p>${review.review.review}</p>
+          <span class="badge badge-pill badge-dark">${review.review.authorName}</span>
+        </article>
+      `);
+
+      return article;
+    };
+
     // Make Changes if user is logged in
     let self = null;
     $.ajax({method: 'GET', url: '/user'})
@@ -107,6 +129,13 @@
           $('#log').attr('href', '/logout').text('Log out');
         }
       });
+
+    $.ajax({method: 'GET', url: `/reviews`})
+     .fail(() => $('#customerReviews .loading').text('Could not load reviews!'))
+     .done(function(reviews) {
+       $('#customerReviews .loading').remove();
+       $('#customerReviews').append(reviews.map(review => reviewArticle(review)));
+     });
 
 
 

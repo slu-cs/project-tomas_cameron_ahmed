@@ -49,6 +49,7 @@ server.use(express.static('front', {extensions: ['html']}));
 // Back end APIs
 server.use('/students', require('./back/students'));
 server.use('/items', require('./back/items'));
+server.use('reviews', require('.back/reviews'));
 
 
 // Login routes
