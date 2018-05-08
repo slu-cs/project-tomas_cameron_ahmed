@@ -29,7 +29,7 @@ const router = express.Router();
     });
   });
 
-  // Post a new review
+  // Post a new review (User must be logged in)
   router.post('/', function(request, response, next) {
     if (!request.user) return next(new Error('Forbidden'));
 
