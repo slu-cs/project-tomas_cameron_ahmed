@@ -98,7 +98,35 @@
       return iArticle
     };
 
-    // Get the opinion ID out of the URL
+    const reviewArticle = function(review) {
+      const article = $(`
+        <article id="${review.item_id}" class="border-bottom my-3 pb-3">
+          <p>${review.review}</p>
+          <a class="delete mx-3" href="#">[Delete]</a>
+        </article>
+      `);
+
+      return article;
+    }
+
+    // Check if the user is logged in
+    let self = null;
+    $.ajax({method: 'GET', url: '/user'})
+      .done(function(user) {
+        self = user;
+
+        // Make a few changes to the page if so
+
+        // Load the reviews on this item from the database
+        $.ajax({method: 'GET', url: `/reviews?item_id=${topic}`})
+          .fail(() => $('#customerReviews .loading').text('Could not load comments!'))
+          .done(function(reviews) {
+            $('#customerReviews .loading').remove();
+            $('#customerReviews').append(reviewArticle(reviews));
+          });
+      });
+
+    // Get the item ID out of the URL
     const topic = new URLSearchParams(window.location.search).get('topic');
     console.log(topic);
 
@@ -109,6 +137,24 @@
         $('#specificItem .loading').remove();
         $('#specificItem').append(itemArticle(item));
       });
+
+      // Handle form submit
+    $('#new').on('submit', function(event) {
+      event.preventDefault();
+      const body = {
+        item_id: topic,
+        review: $('#review').val().trim(),
+      };
+
+      // Post a new review
+      const form = this;
+      $.ajax({method: 'POST', url: '/reviews', data: body})
+        .fail(() => alert('Could not submit!'))
+        .done(function(review) {
+          $('#customerReviews').append(reviewArticle(review));
+          form.reset();
+        });
+    });
 
     </script>
   </body>

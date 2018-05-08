@@ -39,7 +39,7 @@ const router = express.Router();
   // add an order to the shopping cart
   router.patch('/:id/order', function(request, response, next){
     console.log(request.params.id);
-    // if (user.id === request.params.id) {
+    if (!request.user) return next(new Error('Forbidden'));
       const student = {
         _id : request.params.id
       };
@@ -76,10 +76,6 @@ const router = express.Router();
             if (error) return next(error);
            })
          });
-       // }
-       // else {
-       //   console.log("You do not have access!!");
-       // }
      });
        // db.students.updateOne(student, insertedItem, function(error, report){
        //   if (error) return next(error);
@@ -87,7 +83,7 @@ const router = express.Router();
        // })
 
   router.patch('/:id/addfunds', function(request, response, next){
-    // if (user.id === request.params.id) {
+    if (!request.user) return next(new Error('Forbidden'));
       const student = {
         _id : request.params.id
       };
@@ -106,10 +102,7 @@ const router = express.Router();
           response.json(student);
         })
       })
-    // }
-    // else {
-    //   Console.log("You do not have access!!");
-    // }
+
   });
 
   // Delete an item from shopping cart
