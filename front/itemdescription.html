@@ -3,17 +3,83 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <link rel="stylesheet" type="text/css" href="now-ui-dashboard.css?v=1.0.1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Item Description</title>
+    <link rel="stylesheet" href="helpers.css"><title>Pub 56: Item Description</title>
   </head>
   <body>
+    <div class="wrapper">
+      <div class="sidebar" data-color="blue">
+        <div class="logo">
+            <a href="http://www.stlawu.edu/" class="simple-text logo-mini">
+                SLU
+            </a>
+            <a href="http://www.stlawu.edu/student-activities-and-leadership/pub-56" class="simple-text logo-normal">
+                Pub 56
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li class="active">
+                  <a href="userspage.html">
+                      <i class="now-ui-icons users_single-02"></i>
+                      <p>Profile</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="menu.html">
+                      <i class="now-ui-icons design_bullet-list-67"></i>
+                      <p>Menu</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="reviews.html">
+                      <i class="now-ui-icons ui-2_like"></i>
+                      <p>Reviews</p>
+                  </a>
+              </li>
+            </ul>
+        </div>
+        <div class="fixed-bottom p-4" id="itemFooter">
+          <a href="/menu" class="text-white float-left">
+            <i class="now-ui-icons arrows-1_minimal-left"></i>
+            <p>Back to all items</p>
+          </a>
+        </div>
+      </div>
+      <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent relative-position bg-primary fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
     <header id="specificItem" class="jumbotron">
       <h1 class="loading">Loading item...</h1>
     </header>
 
-    <footer class="bg-dark fixed-bottom p-2">
-      <a href="/menu" class="text-white float-left">Back to all items</a>
-    </footer>
+    <h1 class="text-center display-5">Reviews</h1>
+
+    <form id="new" class="container mb-5">
+      <textarea id="review" placeholder="What do you have to say?" class="form-control my-1" required></textarea>
+      <button type="submit" class="btn btn-primary text-center">Submit</button>
+    </form>
+
+    <div id="customerReviews">
+      <p class="loading">Loading reviews...</p>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
@@ -21,8 +87,8 @@
     // Generate an article for the item
     const itemArticle = function(item) {
       const iArticle =  $(`
-        <header>
-          <h1>${item.item.name}</h1>
+        <header class="text-center">
+          <h1 id="itemName">${item.item.name}</h1>
           <aside>$${item.price}</aside>
           <p>${item.item.description}</p>
           <img src="${item.url}"></img>
