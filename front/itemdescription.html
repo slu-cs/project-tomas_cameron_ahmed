@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
     <link rel="stylesheet" type="text/css" href="now-ui-dashboard.css?v=1.0.1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="helpers.css"><title>Pub 56: Item Description</title>
+    <link rel="stylesheet" href="helpers.css">
+    <title>Pub 56: Item Description</title>
   </head>
   <body>
     <div class="wrapper">
@@ -64,7 +65,7 @@
       <h1 class="loading">Loading item...</h1>
     </header>
 
-    <h1 class="text-center display-5">Reviews</h1>
+    <h1 id="subheading" class="text-center display-5">Reviews</h1>
 
     <form id="new" class="container mb-5">
       <textarea id="review" placeholder="What do you have to say?" class="form-control my-1" required></textarea>
@@ -89,10 +90,10 @@
     const itemArticle = function(item) {
       const iArticle =  $(`
         <header class="text-center">
-          <h1 id="itemName">${item.item.name}</h1>
+          <h1 id="heading">${item.item.name}</h1>
           <aside>$${item.price}</aside>
           <p>${item.item.description}</p>
-          <img src="${item.url}"></img>
+          <img id="preview" class="rounded mx-auto d-block img-thumbnail" src="${item.url}"></img>
         </header>
       `);
 

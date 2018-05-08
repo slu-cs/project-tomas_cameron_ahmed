@@ -91,6 +91,10 @@
       <h3 class="text-center display-5">Sandwhiches are served with your choice of Fries or Coleslaw!</h3>
     </div> -->
     </br></br>
+    <div class="text-center">
+      <p>Filter: <a class="m-2" href="#">A-Z</a> <a href="#"> Price $-$$$ </a><p>
+    </div>
+    </br>
     <div class="content">
       <div class="row">
         <div class="col-lg-2">
@@ -190,9 +194,9 @@
     // Generate an article for an item
        const itemArticle = function(item) {
          const iArticle = $(`
-           <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+           <div class="font-icon-list .col-xs-6 .col-sm-3 m-5">
              <div class="font-icon-detail">
-               <img src="${item.url}" width="90%" height="200">
+               <img src="${item.url}" id="preview2">
                <a href="itemdescription?topic=${item.item_id}">
                 <p id="name">${item.item.name} $${item.price}</p>
                <a/>

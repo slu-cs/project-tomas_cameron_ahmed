@@ -4,3 +4,21 @@
 .big-text{
   font-size: 5rem;
 }
+
+#preview{
+  height: 300px;
+  width: 300px;
+}
+
+#preview2{
+  height: 200px;
+  width: 200px;
+}
+
+#heading{
+  font-size: 3.5rem;
+}
+
+#subheading{
+  font-size: 2.0rem;
+}
