@@ -92,7 +92,7 @@
     </div> -->
     </br></br>
     <div class="text-center">
-      <p>Filter: <a class="m-2" href="#">A-Z</a> <a href="#"> Price $-$$$ </a><p>
+      <p>Filter: <a id="alpha" class="m-2" href="#" onclick="alphaFilter()">A-Z</a> <a href="#" onclick="priceFilter()" id="price" > Price $-$$$ </a><p>
     </div>
     </br>
     <div class="content">
@@ -182,6 +182,8 @@
       let items_category = [];
       const category = $('.content .card-chart');
       const items_div = $('#items');
+      const alphabetical = $('#alpha');
+      const price = $('#price');
       category.on('click', function(){
         if($('#items *').length > 0){
           items_div.empty();
@@ -192,6 +194,26 @@
         items_div.append(items_category.map(item => itemArticle(item)));
 
       });
+
+      function alphaFilter(){
+        if($('#items *').length > 0){
+          items_div.empty();
+        }
+        
+      };
+
+      function priceFilter(){
+        if($('#items *').length > 0){
+          items_div.empty();
+        }
+
+      };
+
+
+
+
+
+
     // Generate an article for an item
        const itemArticle = function(item) {
          const iArticle = $(`
@@ -203,7 +225,7 @@
                <a href="itemdescription?topic=${item.item_id}">
                 <p id="name">${item.item.name} $${item.price}</p>
                <a/>
-               <button class="btn btn-primary" onclick="showNotification('top','right')">add</button>
+               <button class="btn btn-primary" onclick="showNotification('top','right')">Add</button>
              </div>
            </div>
          `);
