@@ -22,3 +22,34 @@
 #subheading{
   font-size: 2.0rem;
 }
+
+#card:hover{
+  background-color: #fff;
+  border-color: #ADDFFF;
+  border-width: 1.5px;
+}
+
+#menuCard:hover {
+  background-color: #ADDFFF;
+  border-color: #fff;
+  border-width: 2.5px;
+}
+
+#menuCard{
+  border-color: #fff;
+  border-width: 2.5px;
+}
+
+#card{
+  border-width: 1.5px;
+  width: 235px;
+  height: 400px;
+}
+
+#card img{
+  margin: 5px;
+}
+
+#menuCard h4 {
+  font-size:1.2rem;
+}

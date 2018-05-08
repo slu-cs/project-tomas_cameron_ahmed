@@ -98,7 +98,7 @@
     <div class="content">
       <div class="row">
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div id="menuCard" class="card card-chart">
             <div class="card-body text-center">
               <img src="images/noun_98633_cc.svg" width="75%" height="100">
               <h4 class="card-title">Appetizer</h4>
@@ -106,7 +106,7 @@
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div id="menuCard" class="card card-chart">
             <div class="card-body text-center">
               <img src="images/noun_1339118_cc.svg" width="75%" height="100">
               <h4 class="card-title">Sandwhich</h4>
@@ -114,7 +114,7 @@
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div id="menuCard" class="card card-chart">
             <div class="card-body text-center">
               <img src="images/noun_47310_cc.svg" width="75%" height="100">
               <h4 class="card-title">Flatbread</h4>
@@ -122,7 +122,7 @@
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div id="menuCard" class="card card-chart">
             <div class="card-body text-center">
               <img src="images/salad.svg" width="75%" height="100">
               <h4 class="card-title">Salad</h4>
@@ -130,7 +130,7 @@
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div id="menuCard" class="card card-chart">
             <div class="card-body text-center">
               <img src="images/noun_1701220_cc.svg" width="75%" height="100">
               <h4 class="card-title">Soft Drink</h4>
@@ -138,7 +138,7 @@
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="card card-chart">
+          <div id="menuCard" class="card card-chart">
             <div class="card-body text-center">
               <img src="images/beer.svg" width="75%" height="100">
               <h4 class="card-title">Beer</h4>
@@ -149,8 +149,9 @@
       <!-- <div id="prompt2">
         <h3 class="text-center display-5">Need Dressing? Just ask!</h3>
       </div> -->
+
       <div class="card-body all-icons">
-        <div class="row" id="items">
+        <div class="row justify-content-md-center " id="items">
           <p class="loading">Loading items...</p>
         </div>
       </div>
@@ -194,8 +195,8 @@
     // Generate an article for an item
        const itemArticle = function(item) {
          const iArticle = $(`
-           <div class="font-icon-list .col-xs-6 .col-sm-3 m-5">
-             <div class="font-icon-detail">
+           <div class= "font-icon-list .col-xs-6 .col-sm-3 m-3">
+             <div id="card" class="font-icon-detail">
              <a href="itemdescription?topic=${item.item_id}">
                <img src="${item.url}" id="preview2">
                </a>
@@ -210,7 +211,7 @@
         iArticle.on('click', 'button', function(){
           const that = $(this);
           $.ajax({method: 'PATCH', url:`/students/${self.id}/order?item_id=${item.item_id}`})
-            .fail(() => alert('could add item to the shopping cart'))
+            .fail(() => alert('Something went wrong..Could not add item to your shopping cart'))
             .done(function() {
             })
         });
@@ -221,7 +222,7 @@
           color = 'primary';
          $.notify({
              icon: "now-ui-icons ui-1_bell-53",
-            message: 'item has been addedd to your shopping cart'
+            message: 'Item has been added to your shopping cart!'
 
             },{
                 type: color,
