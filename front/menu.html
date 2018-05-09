@@ -36,12 +36,12 @@
                       <p>Menu</p>
                   </a>
               </li>
-              <li>
+              <!--<li>
                   <a href="reviews.html">
                       <i class="now-ui-icons ui-2_like"></i>
                       <p>Reviews</p>
                   </a>
-              </li>
+              </li>-->
             </ul>
         </div>
       </div>
@@ -175,6 +175,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/bootstrap-notify.js"></script>
     <script>
+
+    $(".card").hover(function(){
+      $(this).toggleClass( "text-white");
+      // could also change image to white here
+    });
+
     // Make Changes if user is logged in
     let self = null;
     $.ajax({method: 'GET', url: '/user'})
