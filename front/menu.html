@@ -92,7 +92,8 @@
     </div> -->
     </br></br>
     <div class="text-center">
-      <p>Filter: <a id="alpha" class="m-2" href="#">A-Z</a> <a class="m-2" href="#" id="price" > Price $-$$$ </a> <a class="m-2" href="#" id="price2" > Price $$$-$ </a><p>
+      <p>Filter: <a id="alpha" class="m-2" href="#">A-Z</a> <a class="m-2" href="#" id="price" > Price $-$$$ </a> <a class="m-2" href="#" id="price2" > Price $$$-$ </a>
+        <a class="m-2" href="#" id="veg" >Vegetarian</a> <p>
     </div>
     </br>
     <div class="content">
@@ -251,6 +252,17 @@
           return b - a
         });
         items_div.append(price.map(item => itemArticle(item)));
+      });
+
+      // price sort - high to low
+      $('#veg').on('click', function(event) {
+        event.preventDefault();
+        if($('#items *').length > 0){
+          items_div.empty();
+        }
+        // filter here
+        const veggie = items_list.filter(function(o){return o.vegetarian == "YES";} );
+        items_div.append(veggie.map(item => itemArticle(item)));
       });
 
 
