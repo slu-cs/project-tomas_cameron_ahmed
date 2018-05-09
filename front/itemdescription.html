@@ -29,7 +29,7 @@
                       <p>Profile</p>
                   </a>
               </li>
-              <li>
+              <li class="active">
                   <a href="menu.html">
                       <i class="now-ui-icons design_bullet-list-67"></i>
                       <p>Menu</p>
@@ -67,7 +67,7 @@
 
   </br></br>
 
-    <h1 id="subheading" class="text-center display-5">Reviews</h1>
+    <h1 id="subheading" class="text-center display-5">Reviews!</h1>
 
     <div id="customerReviews">
       <p class="loading">Loading reviews...</p>
@@ -106,9 +106,9 @@
 
     const reviewArticle = function(review) {
       const article = $(`
-        <article id="${review.item_id}" class="border-bottom my-3 pb-3">
+        <article id="${review.item_id}" class="border-bottom m-5 p-3">
           <p>${review.review}</p>
-          <a class="delete mx-3" href="#">[Delete]</a>
+          <a class="delete m-3" href="#">[Delete]</a>
         </article>
       `);
 
