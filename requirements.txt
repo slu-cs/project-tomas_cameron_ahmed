@@ -19,11 +19,11 @@ Feedback:
 - Completed 3/4 requirements.
 - Placing an order isn't addressed yet.
 - Sometimes when I add funds I see an error saying it failed (even though it worked).
-- Consider making it more obvious how to get to the shopping cart once there is something in it.
-- It would be visually nicer if the menu images were all the same size so they would line up more cleanly.
-- See if you can make it obvious that the menu category images are clickable - perhaps just make them links?
-- On the profile page where it says USER PROFILE perhaps it could say the user's name instead.
-- The logout link is hard to see; consider restyling or relocating it.
+- Consider making it more obvious how to get to the shopping cart once there is something in it.<DONE>
+- It would be visually nicer if the menu images were all the same size so they would line up more cleanly. <DONE>
+- See if you can make it obvious that the menu category images are clickable - perhaps just make them links? <Added CSS to address this>
+- On the profile page where it says USER PROFILE perhaps it could say the user's name instead. <DONE>
+- The logout link is hard to see; consider restyling or relocating it.<DONE>
 - You're going to need some way for new users to begin on the site.
   - Perhaps a button for creating a profile (with $0) if they don't have one.
   - Or perhaps this happens automatically when they log in (your choice).
