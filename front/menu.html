@@ -92,7 +92,7 @@
     </div> -->
     </br></br>
     <div class="text-center">
-      <p>Filter: <a id="alpha" class="m-2" href="#">A-Z</a> <a href="#" id="price" > Price $-$$$ </a><p>
+      <p>Filter: <a id="alpha" class="m-2" href="#">A-Z</a> <a class="m-2" href="#" id="price" > Price $-$$$ </a> <a class="m-2" href="#" id="price2" > Price $$$-$ </a><p>
     </div>
     </br>
     <div class="content">
@@ -206,18 +206,38 @@
           var textA = a.item.name.toUpperCase();
           var textB = b.item.name.toUpperCase();
           return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-});
+        });
         items_div.append(alpha.map(item => itemArticle(item)));
       });
 
-      // price sort
+      // price sort - low to high
       $('#price').on('click', function(event) {
         event.preventDefault();
         if($('#items *').length > 0){
           items_div.empty();
         }
         // filter here
-        items_div.append(prices.map(item => itemArticle(item)));
+        const price = items_list.sort(function(a, b){
+          var a = a.price;
+          var b = b.price;
+          return a - b
+        });
+        items_div.append(price.map(item => itemArticle(item)));
+      });
+
+      // price sort - high to low
+      $('#price2').on('click', function(event) {
+        event.preventDefault();
+        if($('#items *').length > 0){
+          items_div.empty();
+        }
+        // filter here
+        const price = items_list.sort(function(a, b){
+          var a = a.price;
+          var b = b.price;
+          return b - a
+        });
+        items_div.append(price.map(item => itemArticle(item)));
       });
 
 

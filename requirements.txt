@@ -1,6 +1,6 @@
 Features due by 5/10:
  1) A logged-in user can comment on a menu item.
- 2) Menu items can be filtered by a few more useful criteria (restrictions? price?).
+ 2) Menu items can be filtered by a few more useful criteria (restrictions? price?). <DONE>
 
 ------------------------------------------------------------------------------
 
