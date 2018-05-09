@@ -201,8 +201,13 @@
         if($('#items *').length > 0){
           items_div.empty();
         }
-        // filter here
-        items_div.append(items_list.map(item => itemArticle(item)));
+        //console.log(items_list);
+        const alpha = items_list.sort(function(a, b) {
+          var textA = a.item.name.toUpperCase();
+          var textB = b.item.name.toUpperCase();
+          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+});
+        items_div.append(alpha.map(item => itemArticle(item)));
       });
 
       // price sort
@@ -212,7 +217,7 @@
           items_div.empty();
         }
         // filter here
-        items_div.append(items_list.map(item => itemArticle(item)));
+        items_div.append(prices.map(item => itemArticle(item)));
       });
 
 
