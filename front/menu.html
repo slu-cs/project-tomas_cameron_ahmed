@@ -92,7 +92,7 @@
     </div> -->
     </br></br>
     <div class="text-center">
-      <p>Filter: <a id="alpha" class="m-2" href="#" onclick="alphaFilter()">A-Z</a> <a href="#" onclick="priceFilter()" id="price" > Price $-$$$ </a><p>
+      <p>Filter: <a id="alpha" class="m-2" href="#">A-Z</a> <a href="#" id="price" > Price $-$$$ </a><p>
     </div>
     </br>
     <div class="content">
@@ -195,23 +195,25 @@
 
       });
 
-      function alphaFilter(){
+      // alphabetical sort
+      $('#alpha').on('click', function(event) {
+        event.preventDefault();
         if($('#items *').length > 0){
           items_div.empty();
         }
-        
-      };
+        // filter here
+        items_div.append(items_list.map(item => itemArticle(item)));
+      });
 
-      function priceFilter(){
+      // price sort
+      $('#price').on('click', function(event) {
+        event.preventDefault();
         if($('#items *').length > 0){
           items_div.empty();
         }
-
-      };
-
-
-
-
+        // filter here
+        items_div.append(items_list.map(item => itemArticle(item)));
+      });
 
 
     // Generate an article for an item
