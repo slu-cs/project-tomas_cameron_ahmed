@@ -99,7 +99,7 @@
                   <form id="funds" onsubmit="addfunds(this)">
                     <div class="form-control">
                       <label>Amount</label>
-                      <input type="text" class="form-control" placeholder="amount" required>
+                      <input id="moneyInput" type="text" class="form-control" placeholder="amount" required>
                       <button type="submit" class="btn btn-primary">
                         Add Funds
                       </button>
@@ -226,6 +226,7 @@
             .fail(() => alert('Could not add funds'))
             .done(function(student) {
               $('#balance').text(`${student.balance}`);
+              $('#moneyInput').val('');
             })
         }
 
