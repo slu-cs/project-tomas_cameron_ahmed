@@ -82,7 +82,7 @@
               <div class="card card-chart">
                 <div class="card-header">
                   <h5 class="card-category">Current Balance</h5>
-                  <h4 class="card-title" id="balance">1000 $</h4>
+                  <h4 class="card-title" id="balance"></h4>
                   <!--<div class="dropdown">
                       <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                           <i class="now-ui-icons fa loader_gear"></i>
@@ -99,7 +99,7 @@
                   <form id="funds" onsubmit="addfunds(this)">
                     <div class="form-control">
                       <label>Amount</label>
-                      <input id="moneyInput" type="number" class="form-control" placeholder="amount" required>
+                      <input id="moneyInput" type="number" min="0" class="form-control" placeholder="amount" required>
                       <button type="submit" class="btn btn-primary">
                         Add Funds
                       </button>
@@ -249,13 +249,13 @@
       // Function to add funds to a students balance
         function addfunds(elem){
           const form = $(elem);
-          const fundTemp = form.find('input').val();
+          const fundTemp = form.find('input').val().trim();
           $.ajax({method :'PATCH', url: `/students/${self.id}/addfunds?funds=${fundTemp}`})
-            .fail(() => alert(error))
+            .fail(() => alert("There was an error adding funds"))
             .done(function(student) {
               $('#balance').text("$" + `${student.balance}`);
               $('#moneyInput').val('');
-              showNotification('top','right');
+              showNotification('top','right')
             })
         }
 
@@ -267,17 +267,19 @@
           $.ajax({method :'PATCH', url: `/students/${self.id}/removefunds?funds=${fundTemp}`})
             .fail(() => alert(error))
             .done(function(student) {
-              $('#balance').text(`${student.balance}`);
+              $('#balance').text("$" + `${student.balance}`);
               $('#cart').empty();
               $.ajax({method: 'DELETE', url: '/students/emptycart'})
               .fail(() => alert("Did not work"))
               .done(function(student) {
                 tracker = 0;
                 $('.price').text(`Total Price: $` + tracker.toString());
+                showNotification2('top','right')
               });
             });
         });
 
+        // notification for funds
         function showNotification(from, align){
            color = 'primary';
           $.notify({
@@ -286,13 +288,30 @@
 
              },{
                  type: color,
-                 timer: 5000,
+                 timer: 4000,
                  placement: {
                      from: from,
                      align: align
                  }
              });
       }
+
+      // notification for order
+      function showNotification2(from, align){
+         color = 'primary';
+        $.notify({
+            icon: "now-ui-icons ui-1_bell-53",
+           message: 'You successfully placed an order!'
+
+           },{
+               type: color,
+               timer: 4000,
+               placement: {
+                   from: from,
+                   align: align
+               }
+           });
+    }
 
     </script>
   </body>
