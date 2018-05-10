@@ -22,20 +22,92 @@ db.createCollection('items', {validator: {$and: [
 db.createCollection('reviews', {validator: {$and: [
   {item_id: {$type: 'float', $ne: ''}},
   // {review: {$type: 'string', $ne: ''},
-  {'author.id': {$type: 'string', $ne: ''}},
-  {'author.name': {$type: 'string', $ne: ''}},
 ]}});
 
 db.reviews.insertMany([
   {
     item_id: '101',
-    reviews: ['Best appetizer!'],
-    author: {id: '112913515548615287015', name: 'Cameron Pilarski'},
+    reviews: [{comment: 'Best appetizer!', author: {id: '112913515548615287015', name: 'Cameron Pilarski'}}],
   },
   {
     item_id: '102',
-    reviews: ['Favorite appetizer on campus!'],
-    author: {id: '113900384673070663488', name: 'Tomas Cespedes'},
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '103',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '104',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '105',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '106',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '107',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '108',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '109',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '201',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '202',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '203',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '204',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '205',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '206',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '501',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '502',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '503',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '301',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '302',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
+  },
+  {
+    item_id: '303',
+    reviews: [{comment:'Favorite appetizer on campus!', author: {id: '113900384673070663488', name: 'Tomas Cespedes'}}],
   },
 ]);
 

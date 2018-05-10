@@ -32,17 +32,26 @@ const router = express.Router();
   // Post a new review (User must be logged in)
   router.post('/', function(request, response, next) {
     if (!request.user) return next(new Error('Forbidden'));
-
+    const item = {
+      item_id: request.body.item_id
+    }
     const review = {
-      author: request.user,
-      item_id: request.body.item_id,
-      review: request.body.review,
+      $push:{
+        reviews:{
+          comment: request.body.review,
+          author: request.user,
+        }
+      }
     };
-
-    db.reviews.insertOne(review, function(error) {
+    db.reviews.findOne(item, function(error, item){
       if (error) return next(error);
-      response.json(review);
-    });
+      db.reviews.updateOne(item, review, function(error, report){
+        if (error) return next(error);
+      })
+      response.json(item);
+    })
+
+
   });
 
   // Delete a review (user must be logged in and match the review author)

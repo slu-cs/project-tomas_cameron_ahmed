@@ -129,7 +129,7 @@
           .done(function(review) {
             $('#customerReviews .loading').remove();
             let reviews = review.reviews;
-            $('#customerReviews').append(reviews.map(review => reviewArticle(review)));
+            $('#customerReviews').append(reviews.map(review => reviewArticle(review.comment)));
           });
       });
 
@@ -157,8 +157,15 @@
       const form = this;
       $.ajax({method: 'POST', url: '/reviews', data: body})
         .fail(() => alert('Could not submit!'))
-        .done(function(review) {
-          $('#customerReviews').append(reviewArticle(review));
+        .done(function(item) {
+
+          function searchReviews(review){
+            return review.comment === body.review;
+          }
+
+          let newReview = item.reviews.find(searchReviews);
+          console.log(newReview);
+          $('#customerReviews').append(reviewArticle(newReview.comment));
           form.reset();
         });
     });
