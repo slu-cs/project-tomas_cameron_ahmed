@@ -137,7 +137,12 @@
                 <div class="card-footer">
                     <div class="stats">
                       <h4 class="price"> Loading Price </h6>
-                        <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                        <div class="text-right">
+                          <button type="button" class="btn btn-primary">Order</button>
+                        </div>
+                        <div class="text-right">
+                        <i class="now-ui-icons arrows-1_refresh-69">Just Updated</i>
+                        </div>
                     </div>
                 </div>
               </div>
@@ -187,7 +192,7 @@
 
         itemDiv.on('click', 'button', function(){
           const that = $(this);
-          $.ajax({method: 'DELETE', url:`/students/${item.item_id}/order?name=${item.name}`})
+          $.ajax({method: 'DELETE', url:`/students/${self.id}/order?item_id=${item._id}`})
             .fail(() => alert('Could not remove item'))
             .done(function() {
               that.remove();
@@ -224,7 +229,6 @@
               $('#notpablo').text(student.student.name);
               tracker += student.order.map(item => amount(item)).reduce((prev, next) => prev + next);
               $('.price').text(`Total Price: $` + tracker.toString());
-              console.log(tracker);
             })
         }
       });
@@ -243,7 +247,7 @@
           const form = $(elem);
           const fundTemp = form.find('input').val();
           $.ajax({method :'PATCH', url: `/students/${self.id}/addfunds?funds=${fundTemp}`})
-            .fail(() => alert('Could not add funds'))
+            .fail(() => alert(error))
             .done(function(student) {
               $('#balance').text(`${student.balance}`);
               $('#moneyInput').val('');

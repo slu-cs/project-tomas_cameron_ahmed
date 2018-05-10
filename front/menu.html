@@ -282,11 +282,12 @@
            </div>
          `);
 
+         // Add items to shopping cart
         iArticle.on('click', 'button', function(){
           const that = $(this);
           $.ajax({method: 'PATCH', url:`/students/${self.id}/order?item_id=${item.item_id}`})
             .fail(function() {
-              alert("Failed to add item")
+              alert(error)
             })
             .done(function() {
               alert('Item added!!');

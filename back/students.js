@@ -107,11 +107,12 @@ const router = express.Router();
 
   // Delete an item from shopping cart
   router.delete('/:id/order', function(request, response, next) {
+    
     const order = {
-      item_id: new mongodb.ObjectId(request.query.item_id),
+      _id: request.query.id,
     };
 
-    db.students.deleteOne(student, removedItem, function(error, report){
+    db.students.deleteOne(student, order, function(error, report){
       if (error) return next(error);
       })
     });

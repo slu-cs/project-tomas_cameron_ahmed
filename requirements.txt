@@ -9,6 +9,7 @@ Features due by 4/30:
  1) A logged-in user can add money to their balance. <DONE>
  2) A logged-in user can add items to their shopping cart. <DONE>
  3) A logged-in user with a non-empty cart can "place an order."
+      Prices of item + cost of cart + remove + remove funds
  4) Any user can filter the menu by some useful criterion (perhaps food category or keyword?). <DONE>
 
 Teamwork balancing:
