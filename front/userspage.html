@@ -130,8 +130,7 @@
                   </div>-->
                 </div>
                 <div class="card-body text-center" id="cart">
-                  <i class="now-ui-icons shopping_cart-simple big-text"></i>
-                  <h5 class="card-title">Empty Cart</h5>
+
                   <button type="button" class="btn btn-primary">Order</button>
                 </div>
                 <div class="card-footer">
@@ -230,6 +229,11 @@
               if (student.order.length > 0) {
                 tracker += student.order.map(item => amount(item)).reduce((prev, next) => prev + next);
                 $('.stats #orderbutton').prop('hidden', false);
+              }else{
+                $('#cart').append(`<div id='empty'>
+                <i class='now-ui-icons shopping_cart-simple big-text'></i>
+                <h5 class='card-title'>Empty Cart</h5>
+              </div>`);
               }
               $('.price').text(`Total Price: $` + tracker.toString());
             })
