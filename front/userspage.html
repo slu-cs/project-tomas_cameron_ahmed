@@ -255,6 +255,7 @@
             .done(function(student) {
               $('#balance').text("$" + `${student.balance}`);
               $('#moneyInput').val('');
+              showNotification('top','right');
             })
         }
 
@@ -276,6 +277,22 @@
               });
             });
         });
+
+        function showNotification(from, align){
+           color = 'primary';
+          $.notify({
+              icon: "now-ui-icons ui-1_bell-53",
+             message: 'Added Funds to your Account!'
+
+             },{
+                 type: color,
+                 timer: 5000,
+                 placement: {
+                     from: from,
+                     align: align
+                 }
+             });
+      }
 
     </script>
   </body>
