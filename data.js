@@ -113,25 +113,25 @@ db.reviews.insertMany([
 
 db.students.insertMany([
   {
-    balance:1000.00,
+    balance:0.00,
     student: {id: '11234650', name: 'Cameron Pilarski'},
     _id: "112913515548615287015",
     order: [],
   },
   {
-    balance:750.00,
+    balance:0.00,
     student: {id: '11234651', name: 'Tomas Cespedes'},
     _id: "113900384673070663488",
     order: [],
   },
   {
-    balance:500.00,
+    balance:0.00,
     student: {id: '11234652', name: 'Ahmed Bahyoumy'},
     _id: "102325165854935062541",
     order: [],
   },
   {
-    balance:250.00,
+    balance:0.00,
     student: {id: '11234653', name: 'Lisa Torrey'},
     _id: "114095023332102109087",
     order: [],

@@ -83,7 +83,7 @@
                 <div class="card-header">
                   <h5 class="card-category">Current Balance</h5>
                   <h4 class="card-title" id="balance">1000 $</h4>
-                  <div class="dropdown">
+                  <!--<div class="dropdown">
                       <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                           <i class="now-ui-icons fa loader_gear"></i>
                       </button>
@@ -93,7 +93,7 @@
                           <a class="dropdown-item" href="#">Something else here</a>
                           <a class="dropdown-item text-danger" href="#">Remove Data</a>
                       </div>
-                  </div>
+                  </div>-->
                 </div>
                 <div id="profilebody" class="card-body">
                   <form id="funds" onsubmit="addfunds(this)">
@@ -117,7 +117,7 @@
               <div class="card card-chart">
                 <div class="card-header">
                   <h5 class="card-category">Shopping Cart</h5>
-                  <div class="dropdown">
+                  <!--<div class="dropdown">
                       <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                           <i class="now-ui-icons fa loader_gear"></i>
                       </button>
@@ -127,7 +127,7 @@
                           <a class="dropdown-item" href="#">Something else here</a>
                           <a class="dropdown-item text-danger" href="#">Remove Data</a>
                       </div>
-                  </div>
+                  </div>-->
                 </div>
                 <div class="card-body text-center" id="cart">
                   <i class="now-ui-icons shopping_cart-simple big-text"></i>
@@ -223,7 +223,7 @@
           $.ajax({method :'GET', url: `/students/${self.id}`})
             .fail(() => alert('not found'))
             .done(function(student){
-              $('#balance').text(`${student.balance}`);
+              $('#balance').text("$" + `${student.balance}`);
               $('#cart').empty();
               $('#cart').append(student.order.map(item => itemCart(item)));
               $('#notpablo').text(student.student.name);
@@ -253,7 +253,7 @@
           $.ajax({method :'PATCH', url: `/students/${self.id}/addfunds?funds=${fundTemp}`})
             .fail(() => alert(error))
             .done(function(student) {
-              $('#balance').text(`${student.balance}`);
+              $('#balance').text("$" + `${student.balance}`);
               $('#moneyInput').val('');
             })
         }
