@@ -136,6 +136,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="stats">
+                      <h4 class="price"> Loading Price </h6>
                         <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
                     </div>
                 </div>
@@ -179,7 +180,7 @@
           <button type="button" aria-hidden="true" class="close">
             <i class="now-ui-icons ui-1_simple-remove"></i>
           </button>
-          <span>${item.item.name}</span>
+          <span>${item.item.name}  $${item.price}</span>
         </div>
         }
         `)
@@ -191,12 +192,21 @@
             .done(function() {
               that.remove();
             })
+
         });
+
+        // let adder = 0;
+        // for (item) {
+        //   adder += `${item.price}`;
+        // }
+        // console.log(adder);
 
         return itemDiv;
     }
 
+
     // Make Changes if user is logged in
+    let tracker = 0;
     let self = null;
     $.ajax({method: 'GET', url: '/user'})
       .done(function(user) {
@@ -212,10 +222,20 @@
               $('#cart').empty();
               $('#cart').append(student.order.map(item => itemCart(item)));
               $('#notpablo').text(student.student.name);
+              tracker += student.order.map(item => amount(item)).reduce((prev, next) => prev + next);
+              $('.price').text(`Total Price: $` + tracker.toString());
+              console.log(tracker);
             })
         }
       });
 
+      function amount(item){
+        return parseFloat(`${item.price}`);
+      }
+
+      function sum(prev, next){
+        return prev + next;
+      }
 
 
       // Function to add funds to a students balance
