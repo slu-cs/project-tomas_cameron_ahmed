@@ -278,6 +278,10 @@
               .done(function(student) {
                 tracker = 0;
                 $('.price').text(`Total Price: $` + tracker.toString());
+                $('#cart').append(`<div id='empty'>
+                <i class='now-ui-icons shopping_cart-simple big-text'></i>
+                <h5 class='card-title'>Empty Cart</h5>
+              </div>`);
                 showNotification2('top','right')
               });
             });
