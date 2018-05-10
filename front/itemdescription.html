@@ -106,8 +106,8 @@
 
     const reviewArticle = function(review) {
       const article = $(`
-        <article id="${review.item_id}" class="border-bottom m-5 p-3">
-          <p>${review.review}</p>
+        <article class="border-bottom m-5 p-3">
+          <p>${review}</p>
           <a class="delete m-3" href="#">[Delete]</a>
         </article>
       `);
@@ -124,11 +124,12 @@
         // Make a few changes to the page if so
 
         // Load the reviews on this item from the database
-        $.ajax({method: 'GET', url: `/reviews?item_id=${topic}`})
+        $.ajax({method: 'GET', url: `/reviews/${topic}`})
           .fail(() => $('#customerReviews .loading').text('Could not load comments!'))
-          .done(function(reviews) {
+          .done(function(review) {
             $('#customerReviews .loading').remove();
-            $('#customerReviews').append(reviewArticle(reviews));
+            let reviews = review.reviews;
+            $('#customerReviews').append(reviews.map(review => reviewArticle(review)));
           });
       });
 

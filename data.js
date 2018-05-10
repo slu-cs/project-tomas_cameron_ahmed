@@ -21,7 +21,7 @@ db.createCollection('items', {validator: {$and: [
 
 db.createCollection('reviews', {validator: {$and: [
   {item_id: {$type: 'float', $ne: ''}},
-  {review: {$type: 'string', $ne: ''}},
+  // {review: {$type: 'string', $ne: ''},
   {'author.id': {$type: 'string', $ne: ''}},
   {'author.name': {$type: 'string', $ne: ''}},
 ]}});
@@ -29,12 +29,12 @@ db.createCollection('reviews', {validator: {$and: [
 db.reviews.insertMany([
   {
     item_id: '101',
-    review: 'Best appetizer!',
+    reviews: ['Best appetizer!'],
     author: {id: '112913515548615287015', name: 'Cameron Pilarski'},
   },
   {
     item_id: '102',
-    review: 'Favorite appetizer on campus!',
+    reviews: ['Favorite appetizer on campus!'],
     author: {id: '113900384673070663488', name: 'Tomas Cespedes'},
   },
 ]);

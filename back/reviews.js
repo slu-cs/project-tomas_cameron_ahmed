@@ -11,22 +11,22 @@ const router = express.Router();
     db.reviews = db.collection('reviews');
   });
 
-  // Get all the reviews
-  router.get('/', function(request, response, next) {
-    db.reviews.find().toArray(function(error, reviews) {
-      if (error) return next(error);
-      response.json(reviews);
-    });
-  });
+  // // Get all the reviews
+  // router.get('/', function(request, response, next) {
+  //   db.reviews.find().toArray(function(error, reviews) {
+  //     if (error) return next(error);
+  //     response.json(reviews);
+  //   });
+  // });
 
   // Get all the reviews for a specific item
-  router.get('/', function(request, response, next) {
-    const review = {item_id: new mongodb.ObjectId(request.query.item_id)};
+  router.get('/:id', function(request, response, next) {
+    const review = {item_id: request.params.id}; // crime in the name web development
 
-    db.reviews.find(review).toArray(function(error, reviews) {
+    db.reviews.findOne(review, function(error, review){
       if (error) return next(error);
-      response.json(reviews);
-    });
+      response.json(review);
+    })
   });
 
   // Post a new review (User must be logged in)
@@ -35,7 +35,7 @@ const router = express.Router();
 
     const review = {
       author: request.user,
-      item_id: new mongodb.ObjectId(request.body.item_id),
+      item_id: request.body.item_id,
       review: request.body.review,
     };
 

@@ -111,14 +111,6 @@ const router = express.Router();
       item_id: new mongodb.ObjectId(request.query.item_id),
     };
 
-    const removedItem = {
-          $pull: {
-            order: {name: decodeURI(request.query.name),
-            description: decodeURI(request.query.description),
-            }
-          }
-    }
-
     db.students.deleteOne(student, removedItem, function(error, report){
       if (error) return next(error);
       })

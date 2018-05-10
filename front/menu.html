@@ -285,8 +285,11 @@
         iArticle.on('click', 'button', function(){
           const that = $(this);
           $.ajax({method: 'PATCH', url:`/students/${self.id}/order?item_id=${item.item_id}`})
-            .fail(() => alert('Something went wrong..Could not add item to your shopping cart'))
+            .fail(function() {
+              alert("Failed to add item")
+            })
             .done(function() {
+              alert('Item added!!');
             })
         });
          return iArticle;
