@@ -218,7 +218,6 @@
       .done(function(user) {
         if (user) {
           self = user;
-          console.log(self)
           $('#log').attr('href', '/logout').text('Log out');
           $(`#${self.id}`).show();
           $.ajax({method :'GET', url: `/students/${self.id}`})
@@ -237,6 +236,7 @@
         }
       });
 
+      // assist functions for removing funds
       function amount(item){
         return parseFloat(`${item.price}`);
       }
@@ -267,7 +267,14 @@
             .fail(() => alert(error))
             .done(function(student) {
               $('#balance').text(`${student.balance}`);
-            })
+              $('#cart').empty();
+              $.ajax({method: 'DELETE', url: '/students/emptycart'})
+              .fail(() => alert("Did not work"))
+              .done(function(student) {
+                tracker = 0;
+                $('.price').text(`Total Price: $` + tracker.toString());
+              });
+            });
         });
 
     </script>
