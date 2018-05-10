@@ -99,7 +99,7 @@
                   <form id="funds" onsubmit="addfunds(this)">
                     <div class="form-control">
                       <label>Amount</label>
-                      <input id="moneyInput" type="text" class="form-control" placeholder="amount" required>
+                      <input id="moneyInput" type="number" class="form-control" placeholder="amount" required>
                       <button type="submit" class="btn btn-primary">
                         Add Funds
                       </button>
@@ -192,7 +192,8 @@
 
         itemDiv.on('click', 'button', function(){
           const that = $(this);
-          $.ajax({method: 'DELETE', url:`/students/${self.id}/order?item_id=${item._id}`})
+          console.log(that);
+          $.ajax({method: 'DELETE', url:`/students/${self.id}/order?item_id=${item.item_id}`})
             .fail(() => alert('Could not remove item'))
             .done(function() {
               that.remove();
