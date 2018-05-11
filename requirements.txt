@@ -1,4 +1,4 @@
-Need to do Deletes
+Need to do Deletes <DONE>
 
 Features due by 5/10:
  1) A logged-in user can comment on a menu item.<DONE>
