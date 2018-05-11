@@ -107,14 +107,20 @@
 
     const reviewArticle = function(review) {
       const article = $(`
-        <article class="border-bottom m-5 p-3">
+        <article id="rev" class="border-bottom m-5 p-3">
           <p>${review.comment}</p>
-          <span class="badge">${review.author.name}</span>
+          <span class="badge" id="${review.author.id}">${review.author.name}</span>
           <a class="delete m-3" href="#">[Delete]</a>
         </article>
       `);
 
+      // No delete option if the user isn't the comment author
+      if (!self || self.id !== review.author.id) {
+        article.find('.delete').remove();
+      }
+
       return article;
+
     }
 
     // Check if the user is logged in
