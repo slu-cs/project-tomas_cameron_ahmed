@@ -59,7 +59,7 @@ const router = express.Router();
     const review = {
       author: request.user,
       item_id: new mongodb.ObjectId(request.body.item_id),
-      review: request.body.review,
+      review: request.body.comment,
     };
 
     db.reviews.deleteOne(review, function(error, report) {

@@ -118,7 +118,7 @@
       if (!self || self.id !== review.author.id) {
         article.find('.delete').remove();
       }
-
+      
       return article;
 
     }
@@ -177,6 +177,23 @@
           form.reset();
         });
     });
+
+    // Handle clicks on delete links
+   $('#customerReviews').on('.delete', 'click', function(event) {
+     event.preventDefault();
+     if (confirm('Delete this comment permanently?')) {
+       const article = $(this).closest('article');
+       const id = $('')
+       const body = {
+         item_id: topic,
+         review: $('#review').val().trim(),
+       };
+       // Delete a comment
+       $.ajax({method: 'DELETE', url: `/reviews`, data: body})
+         .fail(() => alert('Could not delete!'))
+         .done(() => article.remove());
+     }
+   });
 
     </script>
   </body>
