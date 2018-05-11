@@ -2,7 +2,7 @@ Need to do Deletes
 
 Features due by 5/10:
  1) A logged-in user can comment on a menu item.
-        Need to be able to post and delete
+        delete
  2) Menu items can be filtered by a few more useful criteria (restrictions? price?). <DONE>
 
 ------------------------------------------------------------------------------
@@ -11,7 +11,6 @@ Features due by 4/30:
  1) A logged-in user can add money to their balance. <DONE>
  2) A logged-in user can add items to their shopping cart. <DONE>
  3) A logged-in user with a non-empty cart can "place an order." <DONE>
-      Prices of item + cost of cart + remove + remove funds
  4) Any user can filter the menu by some useful criterion (perhaps food category or keyword?). <DONE>
 
 Teamwork balancing:
@@ -20,12 +19,11 @@ Teamwork balancing:
 - It's also acceptable to divide the work, as long as Ahmed is assigned three features.
 
 Feedback:
-- Completed 3/4 requirements.
 - Placing an order isn't addressed yet. <DONE>
 - Sometimes when I add funds I see an error saying it failed (even though it worked). <DONE>
 - Consider making it more obvious how to get to the shopping cart once there is something in it.<DONE>
 - It would be visually nicer if the menu images were all the same size so they would line up more cleanly. <DONE>
-- See if you can make it obvious that the menu category images are clickable - perhaps just make them links? <Added CSS to address this>
+- See if you can make it obvious that the menu category images are clickable - perhaps just make them links? <DONE>
 - On the profile page where it says USER PROFILE perhaps it could say the user's name instead. <DONE>
 - The logout link is hard to see; consider restyling or relocating it.<DONE>
 - You're going to need some way for new users to begin on the site.
