@@ -193,8 +193,7 @@
         `)
 
         itemDiv.on('click', 'button', function(){
-          const that = $(this);
-          console.log(that);
+          const that = $(this).closest('.alert');
           $.ajax({method: 'DELETE', url:`/students/${self.id}/order?item_id=${item.item_id}`})
             .fail(() => alert('Could not remove item'))
             .done(function() {

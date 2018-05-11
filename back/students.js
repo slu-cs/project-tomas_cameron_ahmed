@@ -22,12 +22,10 @@ const router = express.Router();
 
   // get current student
   router.get('/:id', function(request, response, next){
-    console.log(request.params.id);
     const student = {
       _id : request.params.id
     };
 
-    console.log(student);
     db.students.findOne(student, function(error, student){
       if (error) return next(error);
       if (!student) return next(new Error("Not Found"));
@@ -38,7 +36,6 @@ const router = express.Router();
 
   // add an order to the shopping cart
   router.patch('/:id/order', function(request, response, next){
-    console.log(request.params.id);
     if (!request.user) return next(new Error('Forbidden'));
     const student = {
       _id : request.params.id
@@ -46,6 +43,7 @@ const router = express.Router();
     const reterivedItem = {
       'item_id': request.query.item_id
     }
+
     db.items.findOne(reterivedItem, function(error, item){
       if (error) return next(error);
 
@@ -59,10 +57,6 @@ const router = express.Router();
       });
     });
   });
-       // db.students.updateOne(student, insertedItem, function(error, report){
-       //   if (error) return next(error);
-       //
-       // })
 
   // Route to addfunds
   router.patch('/:id/addfunds', function(request, response, next){
@@ -139,11 +133,19 @@ const router = express.Router();
     };
 
     const order = {
-      'item_id': request.query.item_id
+      $pull: {
+        order: {
+          'item_id': request.query.item_id
+        }
+      }
     };
 
-    db.students.deleteOne(student, order, function(error, report){
+    db.students.updateOne(student, order, function(error, report){
       if (error) return next(error);
+      db.students.findOne(student, function(error, student){
+        if (error) return next(error);
+        response.json(student);
+      })
       })
     });
 
