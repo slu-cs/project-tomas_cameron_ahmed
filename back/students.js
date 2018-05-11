@@ -40,43 +40,25 @@ const router = express.Router();
   router.patch('/:id/order', function(request, response, next){
     console.log(request.params.id);
     if (!request.user) return next(new Error('Forbidden'));
-      const student = {
-        _id : request.params.id
-      };
-       const reterivedItem = {
-               'item_id': request.query.item_id
-       }
-       db.items.findOne(reterivedItem, function(error, item){
-         console.log('here');
-         if (error) return next(error);
-         item['quantity'] = 0;
-         let insertedItem = {
-           $addToSet : {
-             order : item
-           }
-         }
-         // let final = {};
-         // let itemF = {};
-         // itemF['order'] = item;
-         // final['$push']=itemF;
-          db.students.updateOne(student, insertedItem, function(error, report){
-            let needToBeIncrementedItem = student;
-            needToBeIncrementedItem['order.item_id'] = item.item_id;
-            console.log(needToBeIncrementedItem);
-            let incrementedItem = {
-              $inc : {
-                'order.$.quantity': 1
-              }
-            }
-            if (report.matchedCount === 0){
-              db.students.updateOne(needToBeIncrementedItem, incrementedItem, function(error, report){
-                if (error) return next(error);
-              })
-            }
-            if (error) return next(error);
-           })
-         });
-     });
+    const student = {
+      _id : request.params.id
+    };
+    const reterivedItem = {
+      'item_id': request.query.item_id
+    }
+    db.items.findOne(reterivedItem, function(error, item){
+      if (error) return next(error);
+
+      let insertedItem = {
+        $push : {
+          order : item
+        }
+      }
+      db.students.updateOne(student, insertedItem, function(error, report){
+        if (error) return next(error);
+      });
+    });
+  });
        // db.students.updateOne(student, insertedItem, function(error, report){
        //   if (error) return next(error);
        //
