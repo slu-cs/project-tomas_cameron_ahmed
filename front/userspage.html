@@ -185,7 +185,9 @@
           <button type="button" aria-hidden="true" class="close">
             <i class="now-ui-icons ui-1_simple-remove"></i>
           </button>
-          <span>${item.item.name}  $${item.price}</span>
+          <a href="itemdescription?topic=${item.item_id}">
+            <span class="text-white">${item.item.name} -- $${item.price}</span>
+          </a>
         </div>
         }
         `)
@@ -284,6 +286,7 @@
                 <h5 class='card-title'>Empty Cart</h5>
               </div>`);
                 showNotification2('top','right')
+                $('.stats #orderbutton').prop('hidden', true);
               });
             });
         });
