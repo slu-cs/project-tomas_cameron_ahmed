@@ -110,15 +110,26 @@
         <article id="rev" class="border-bottom m-5 p-3">
           <p>${review.comment}</p>
           <span class="badge" id="${review.author.id}">${review.author.name}</span>
-          <a class="delete m-3" href="#">[Delete]</a>
+          <button class="delete m-3">[Delete]</button>
         </article>
       `);
 
       // No delete option if the user isn't the comment author
       if (!self || self.id !== review.author.id) {
-        article.find('.delete').remove();
+        article.find('button').remove();
       }
-      
+
+      article.on('click', '.delete', function(){
+        const that = $(this).closest('article');
+        let body = {
+          comment: review.comment
+        }
+        $.ajax({method:'DELETE', url: `/reviews/${self.id}?item_id=${topic}`, data:body})
+          .fail(() => alert('could not delete the comment'))
+          .done(function (){
+            that.remove();
+          })
+      })
       return article;
 
     }

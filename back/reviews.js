@@ -43,28 +43,36 @@ const router = express.Router();
         }
       }
     };
-    db.reviews.findOne(item, function(error, item){
+
+    db.reviews.updateOne(item, review, function(error, report){
       if (error) return next(error);
-      db.reviews.updateOne(item, review, function(error, report){
+      db.reviews.findOne(item, function(error, item){
         if (error) return next(error);
+        response.json(item);
       })
-      response.json(item);
-    })
-
-
-  });
+      })
+    });
 
   // Delete a review (user must be logged in and match the review author)
   router.delete('/:id', function(request, response, next) {
+    if (!request.user) return next(new Error('Forbidden'));
+    const item = {
+      item_id: request.query.item_id
+    };
     const review = {
-      author: request.user,
-      item_id: new mongodb.ObjectId(request.body.item_id),
-      review: request.body.comment,
+      $pull : {
+        reviews: {
+          comment: request.body.comment,
+          author: {
+            id: request.params.id,
+            name: request.user.name,
+          }
+        }
+      }
     };
 
-    db.reviews.deleteOne(review, function(error, report) {
+    db.reviews.updateOne(item, review, function(error, report) {
       if (error) return next(error);
-      if (!report.deletedCount) return next(new Error('Forbidden'));
       response.end();
     });
   });
