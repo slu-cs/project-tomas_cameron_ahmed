@@ -1,8 +1,7 @@
 Need to do Deletes
 
 Features due by 5/10:
- 1) A logged-in user can comment on a menu item.
-        delete
+ 1) A logged-in user can comment on a menu item.<DONE>
  2) Menu items can be filtered by a few more useful criteria (restrictions? price?). <DONE>
 
 ------------------------------------------------------------------------------
@@ -27,9 +26,9 @@ Feedback:
 - On the profile page where it says USER PROFILE perhaps it could say the user's name instead. <DONE>
 - The logout link is hard to see; consider restyling or relocating it.<DONE>
 - You're going to need some way for new users to begin on the site.
-  - Perhaps a button for creating a profile (with $0) if they don't have one.
+  - Perhaps a button for creating a profile (with $0) if they don't have one. <THIS WAY>
   - Or perhaps this happens automatically when they log in (your choice).
-- Watch out for access control issues on the back end:
+- Watch out for access control issues on the back end: <ADDRESSED>
   - Currently anyone can add funds to anyone else's profile, because the server doesn't check who is logged in.
   - Similarly, anyone can add items to anyone else's cart, because the server doesn't check who is logged in.
 
