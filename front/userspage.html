@@ -256,7 +256,7 @@
           const form = $(elem);
           const fundTemp = form.find('input').val().trim();
           $.ajax({method :'PATCH', url: `/students/${self.id}/addfunds?funds=${fundTemp}`})
-            .fail(() => alert("There was an error adding funds"))
+            .fail(() => alert(error))
             .done(function(student) {
               $('#balance').text("$" + `${student.balance}`);
               $('#moneyInput').val('');
