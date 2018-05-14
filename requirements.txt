@@ -1,10 +1,29 @@
+------------------------------------------------------------------------------- Final: 41/45
+
+[30/30] FEATURES MEET REQUIREMENTS AND WORK RELIABLY
+
+[4/5] DESIGN IS COHERENT AND CONVENIENT
+- It's possible to overspend your balance.
+- Deleting one item from the cart deletes all items of the same name.
+- Since your site only works for people in the students collection, login should only be available to those people.
+
+[4/5] DATA IS ORGANIZED AND PROTECTED
+- Any logged-in user could items to anyone else's cart on the back end, because the server doesn't make sure request.user.id and request.params.id match.
+- For similar reasons, any logged-in user could add to (or even remove from!) anyone else's balance.
+- For similar reasons, users who happen to have the same name could delete each other's comments.
+
+[3/5] WORK WAS SHARED AND COMPLETED ON SCHEDULE
+- The project missed some of the intermediate deadlines.
+
+------------------------------------------------------------------------------- Stage 3
+
 Need to do Deletes <DONE>
 
 Features due by 5/10:
  1) A logged-in user can comment on a menu item.<DONE>
  2) Menu items can be filtered by a few more useful criteria (restrictions? price?). <DONE>
 
-------------------------------------------------------------------------------
+------------------------------------------------------------------------------- Stage 2
 
 Features due by 4/30:
  1) A logged-in user can add money to their balance. <DONE>
@@ -32,7 +51,7 @@ Feedback:
   - Currently anyone can add funds to anyone else's profile, because the server doesn't check who is logged in.
   - Similarly, anyone can add items to anyone else's cart, because the server doesn't check who is logged in.
 
-------------------------------------------------------------------------------
+------------------------------------------------------------------------------- Stage 1
 
 Features due by 4/16:
  1) Home page that lists all menu items in some default order. <DONE>
