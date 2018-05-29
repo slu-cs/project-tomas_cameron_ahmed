@@ -97,7 +97,7 @@
                   </div>-->
                 </div>
                 <div id="profilebody" class="card-body">
-                  <form id="funds" onsubmit="addfunds(this)">
+                  <form id="funds">
                     <div class="form-control">
                       <label>Amount</label>
                       <input id="moneyInput" type="number" min="0" class="form-control" placeholder="amount" required>
@@ -198,6 +198,16 @@
             .fail(() => alert('Could not remove item'))
             .done(function() {
               that.remove();
+              tracker -= item.price
+              $('.price').text(`Total Price: $` + tracker.toString());
+              if (tracker === 0) {
+                $('.price').text(`Total Price: $` + tracker.toString());
+                $('#cart').append(`<div id='empty'>
+                <i class='now-ui-icons shopping_cart-simple big-text'></i>
+                <h5 class='card-title'>Empty Cart</h5>
+              </div>`);
+                $('.stats #orderbutton').prop('hidden', true);
+              }
             })
 
         });
@@ -252,18 +262,22 @@
       }
 
 
+
       // Function to add funds to a students balance
-        function addfunds(elem){
-          const form = $(elem);
+        $('#funds').on('click', 'button', function(e){
+          e.preventDefault();
+          const form = $('#funds');
           const fundTemp = form.find('input').val().trim();
           $.ajax({method :'PATCH', url: `/students/${self.id}/addfunds?funds=${fundTemp}`})
             .fail(() => alert(error))
             .done(function(student) {
+              showNotification('top','right')
               $('#balance').text("$" + `${student.balance}`);
               $('#moneyInput').val('');
-              showNotification('top','right')
             })
-        }
+        })
+
+
 
         let fundtemp = null;
         // Remove funds on place order click
