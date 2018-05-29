@@ -65,8 +65,8 @@
 
 #navbarDropdownMenuLink{
   background-color: #2da9ff;
-  width: 80px;
-  height: 50px;
+  width: 60px;
+  height: 40px;
   border-radius: 5px;
   border-width: 3px;
   border-color: #fff;
@@ -88,4 +88,14 @@
   bottom: 0px;
   left: 0px;
   border-top-right-radius:10px;
+}
+.card{
+  height: auto;
+}
+.main-panel{
+  height: 100vh;
+  overflow: auto;
+}
+.main-panel .content{
+  min-height: auto;
 }
