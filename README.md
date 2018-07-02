@@ -1,5 +1,5 @@
 # Food ordering web application
-Dashboard and RESTfull api for food ordering application concept
+Dashboard and RESTfull api for food ordering application
 
 ## Getting started
 To help optimize and improve the efficiency of a Resturant with a high traffic environment; we, a group of 3, developed a UI and JSON RESTfull API service for food ordering application in one month period, including oAuth, user profiles, menu items, comments, and etc.
