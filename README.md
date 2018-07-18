@@ -6,6 +6,8 @@ To help optimize and improve the efficiency of a Resturant with a high traffic e
 
 Tools used: HTML, CSS, JavaScript, jQuery, Node.js, Express.js, MongoDB, oAuth
 
+Currently the project is hosted on local machine that requires vpn to access, however its in the process of getting moved to AWS
+
 ## Process
 * Analyzed traffic and made necessary changes for a better user experience
 * Fixed front end bugs (HTML, CSS, Javascript errors (JQUERY)
